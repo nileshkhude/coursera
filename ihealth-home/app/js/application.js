@@ -8,7 +8,7 @@ app.config(function($routeProvider){
       templateUrl:"./template/home.html"
   })
   .when('/search',{
-    templateUrl:"/template/search-page.html"
+    templateUrl:"./template/search-page.html"
   })
   .when('/search1',{
     templateUrl:"./template/search-page1.html"
