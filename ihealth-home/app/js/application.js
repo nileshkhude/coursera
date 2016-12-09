@@ -5,7 +5,7 @@ var app = angular.module("ihealthMantra",['ngRoute','ngMaterial', 'ngMessages','
 app.config(function($routeProvider){
   $routeProvider
   .when('/',{
-      templateUrl:"../../template/home.html"
+      templateUrl:"./template/home.html"
   })
   .when('/search',{
     templateUrl:"../../template/search-page.html"
