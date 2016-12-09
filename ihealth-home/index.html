@@ -115,6 +115,11 @@ jQuery(document).ready(function($){
 				// });
 				$( document ).on( 'click', '.arrow-left', function(){
 					console.log("clicked");
+						console.log("clicked");
+						n && (n = !1, setTimeout(function() {
+							n = !0
+						}, 800), $("#demo-wrapper").toggleClass("show-nav"));					
+						$("#demo-wrapper").hasClass("show-nav") ? ($("#arrowsell").addClass("clockwise180"), $("#sellcircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowsell").removeClass("clockwise180"), $("#sellcircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
 				} );
 				console.log("Hi");
 				$("#buycircle").click(function() {
