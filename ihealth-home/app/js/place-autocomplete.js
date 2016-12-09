@@ -24,7 +24,7 @@
 angular.module('ihealthMantra')
   .directive('placeAutocomplete', function() {
     return {
-      templateUrl: '../../../template/place-autocomplete.html',
+      templateUrl: '../template/place-autocomplete.html',
       restrict: 'E',
       replace: true,
       scope: {
