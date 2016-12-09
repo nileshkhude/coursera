@@ -103,10 +103,11 @@ jQuery(document).ready(function($){
 
 		<script>
 			jQuery(document).ready(function($) {
-				alert("Hi");
+				console.log("Hi");
 				var n = !0,
 					t = !0;
 				$("#arrow-left").click(function() {
+					console.log("clicked");
 					n && (n = !1, setTimeout(function() {
 						n = !0
 					}, 800), $("#demo-wrapper").toggleClass("show-nav"));					
