@@ -8,34 +8,34 @@ app.config(function($routeProvider){
       templateUrl:"./template/home.html"
   })
   .when('/search',{
-    templateUrl:"../../template/search-page.html"
+    templateUrl:"/template/search-page.html"
   })
   .when('/search1',{
-    templateUrl:"../../template/search-page1.html"
+    templateUrl:"./template/search-page1.html"
   })
   .when('/search2',{
-    templateUrl:"../../template/search-page2.html"
+    templateUrl:"./template/search-page2.html"
   })
   .when('/search3',{
-    templateUrl:"../../template/search-page3.html"
+    templateUrl:"./template/search-page3.html"
   })
   .when("/managequeue",{
-    templateUrl:"../../template/manage-queue.html"
+    templateUrl:"./template/manage-queue.html"
   })
   .when("/createqueue",{
-    templateUrl:"../../template/create-queue.html"
+    templateUrl:"./template/create-queue.html"
   })
   .when("/queuedetails",{
-    templateUrl:"../../template/queue-details.html"
+    templateUrl:"./template/queue-details.html"
   })
   .when("/corporate",{
-    templateUrl:"../../template/corporate.html"
+    templateUrl:"./template/corporate.html"
   })
   .when("/school",{
-    templateUrl:"../../template/school.html"
+    templateUrl:"./template/school.html"
   })
   .when("/seller",{
-    templateUrl:"../../template/seller.html"
+    templateUrl:"./template/seller.html"
   });
 
 
