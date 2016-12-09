@@ -55,43 +55,6 @@
 		<link ng-href="{{font.url}}" rel="stylesheet">
 		<script src="https://www.google.com/recaptcha/api.js?render=implicit" async defer></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<script>
-			jQuery(document).ready(function($) {
-				console.log("Hi");
-				var n = !0,
-					t = !0;
-				$(".arrow-left").click(function() {
-					console.log("clicked");
-					n && (n = !1, setTimeout(function() {
-						n = !0
-					}, 800), $("#demo-wrapper").toggleClass("show-nav"));					
-					$("#demo-wrapper").hasClass("show-nav") ? ($("#arrowsell").addClass("clockwise180"), $("#sellcircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowsell").removeClass("clockwise180"), $("#sellcircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
-				});
-				$("#buycircle").click(function() {
-					t && (t = !1, setTimeout(function() {
-						t = !0
-					}, 800), $("#demo-wrapper").toggleClass("show-nav2"));
-					$("#demo-wrapper").hasClass("show-nav2") ? ($("#arrowbuy").addClass("clockwise180"), $("#buycircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowbuy").removeClass("clockwise180"), $("#buycircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
-				});
-			});
-			$( document ).on( 'click', 'a[data-role=popup]', function(){
-				var popupId = $( this ).attr( 'href' );
-				$( popupId ).fadeIn();
-				return false;
-			} );
-			$( document ).on( 'click', 'a.popup-overlay', function(){
-				$( this ).parent().fadeOut();
-				return false;
-			} );
-			$( document ).on( 'click', '.menu-toggle', function(){
-				$( this ).closest( 'li' ).children( '.sub-menu' ).slideToggle();
-				return false;
-			} );
-			$( document ).on( 'click', '.contact-toggle', function(){
-				$( '.contact-wrapper' ).slideToggle();
-				return false;
-			} );
-		</script>
 
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -138,7 +101,45 @@ jQuery(document).ready(function($){
 		<!-- including footer -->
 		<div ng-include="'template/footer.html'"></div>
 
-		
+		<script>
+			jQuery(document).ready(function($) {
+				console.log("Hi");
+				var n = !0,
+					t = !0;
+				$(".arrow-left").click(function() {
+					console.log("clicked");
+					n && (n = !1, setTimeout(function() {
+						n = !0
+					}, 800), $("#demo-wrapper").toggleClass("show-nav"));					
+					$("#demo-wrapper").hasClass("show-nav") ? ($("#arrowsell").addClass("clockwise180"), $("#sellcircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowsell").removeClass("clockwise180"), $("#sellcircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
+				});
+				console.log("Hi");
+				$("#buycircle").click(function() {
+					t && (t = !1, setTimeout(function() {
+						t = !0
+					}, 800), $("#demo-wrapper").toggleClass("show-nav2"));
+					$("#demo-wrapper").hasClass("show-nav2") ? ($("#arrowbuy").addClass("clockwise180"), $("#buycircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowbuy").removeClass("clockwise180"), $("#buycircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
+				});
+				console.log("Hi");
+			});
+			// $( document ).on( 'click', 'a[data-role=popup]', function(){
+			// 	var popupId = $( this ).attr( 'href' );
+			// 	$( popupId ).fadeIn();
+			// 	return false;
+			// } );
+			// $( document ).on( 'click', 'a.popup-overlay', function(){
+			// 	$( this ).parent().fadeOut();
+			// 	return false;
+			// } );
+			// $( document ).on( 'click', '.menu-toggle', function(){
+			// 	$( this ).closest( 'li' ).children( '.sub-menu' ).slideToggle();
+			// 	return false;
+			// } );
+			// $( document ).on( 'click', '.contact-toggle', function(){
+			// 	$( '.contact-wrapper' ).slideToggle();
+			// 	return false;
+			// } );
+		</script>
 	<!-- <script src='https://app.popupdomination.com/a/EkoyXK4xM.js'></script> -->
 	</body>
 </html>
