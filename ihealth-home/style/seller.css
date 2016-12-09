@@ -1,0 +1,188 @@
+body,html{
+	background-color: #f2f7f8;/*#efefef;*/
+	height: inherit !important;
+}
+/* Global CSS Start */
+.mar-top{
+  margin-top: 1%;
+}
+
+.mar-top-2{
+  margin-top: 2%;
+}
+
+.opac-60{
+  opacity: 0.6;
+}
+
+.f-bold{
+  font-weight: bold;
+}
+/* Global CSS Ends */
+
+#seller-page .container{
+	margin: 1% auto;
+}
+
+#seller-page md-card-title-text{
+  padding: 0 1%;
+}
+
+#seller-page .tabbing-section-wrapper{
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#seller-page .md-tab{
+  text-transform: capitalize;
+}
+
+#seller-page .btn-callNow-wrapper{
+  text-align: center;
+  align-self: center;
+}
+
+#seller-page .btn-callNow-padding{
+  padding: 0 10%;
+  text-transform: capitalize;
+}
+
+#seller-page .info-wrapper{
+  font-size: 14px;
+}
+
+#seller-page .callNow-section{
+  background-color: #f2f7f8;
+  text-align: center;
+  padding: 1% 0;
+  display: none;
+}
+
+/* Rating CSS Start*/
+#seller-page .strar-rating{
+  font-size: 9px;
+}
+
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: gold;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+/*.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}*/
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+/* Rating CSS End */
+
+/* Overview Tab CSS Starts */
+#overview{
+  font-size: 14px;
+}
+
+#overview .fa{
+  color: #7d7d7d;
+  margin-right: 1%;
+}
+
+#overview .photos img{
+  border-radius: 4px;
+}
+/* Overview Tab CSS Ends */
+
+.test-section, .feedback-section{
+  font-size: 14px;
+}
+
+/* Map Tab CSS Starts */
+.map-section{
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+}
+
+.map-section #lab-map{
+  height: 100%;
+  width: 100%;
+}
+
+.map-section #lab-map img{
+  max-width:none!important;
+  background:none!important
+}
+/* Map Tab CSS Ends */
+
+@media only screen and (max-width: 960px){
+
+}
+
+@media only screen and (max-width: 768px){
+  .map-section{
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  #seller-page .btn-callNow-wrapper{
+    align-self: flex-start;
+  }
+  #overview .mar-top-2 > div{
+    margin-top: 3%;
+  }
+}
+
+@media only screen and (max-width: 480px){
+
+}
+
+@media only screen and (max-width: 420px){
+  .container{
+    width: 100%;
+  }
+}

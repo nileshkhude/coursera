@@ -1,0 +1,158 @@
+
+		<div ng-include="'template/banner.html'"></div>
+		
+		<div class="content">
+			<div class="wrapper">
+				<div class="ben-section clear">
+					<div class="icon-cont">
+						<img src="images/icon1.png" alt="" />
+					</div>
+					<div class="ben-desc">
+						<h1>Save more on medical bills</h1>
+						<p>Find the best clinics and fair prices in your area for a medical procedure.<br />
+						Compare prices. user ratings and discounts.<br />
+						Save on health.</p>
+					</div>
+				</div>
+				<div class="ben-section clear">
+					<div class="icon-cont">
+						<img src="images/icon2.png" alt="" />
+					</div>
+					<div class="ben-desc">
+						<h1>Fair price appointment</h1>
+						<p>Select the health clinic, lock-in price where applicable, and schedule an appointment. Never miss an appoinment by using our automated reminders</p>
+					</div>
+				</div>
+				<md-divider md-inset></md-divider>
+				<div class="ben-section clear">
+					<div class="icon-cont">
+						<img src="images/icon3.png" alt="" />
+					</div>
+					<div class="ben-desc">
+						<h1>Health Offers</h1>
+						<p>We bring the best health offers from our network of health providers to you. Now save even more by availing Health Deals.</p>
+					</div>
+				</div>
+				<md-divider md-inset></md-divider>
+				<div class="ben-section clear">
+					<div class="icon-cont">
+						<img src="images/icon4.png" alt="" />
+					</div>
+					<div class="ben-desc">
+						<h1>Home Collection</h1>
+						<p>Order home sample collection. Report delivered to your email.</p>
+					</div>
+				</div>
+				<md-divider md-inset></md-divider>
+				<div class="ben-section clear">
+					<div class="icon-cont">
+						<img src="images/icon5.png" alt="" />
+					</div>
+					<div class="ben-desc">
+						<h1>Real-Time Q</h1>
+						<p>No long queue. No telephone appointments. Just tap/click to reserve your place in a cinicQ. Moitor queue remotely and plan your visit to clinic. Coming Soon.</p>
+					</div>
+				</div>
+				<md-divider md-inset></md-divider>
+				<div class="ben-section last clear">
+					<div class="icon-cont">
+						<img src="images/icon6.png" alt="" />
+					</div>
+					<div class="ben-desc">
+						<h1>Own your health history</h1>
+						<p>Patient focused electronic health record system. Personalized health recommendations. Comin Soon!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-slider-content" id="demo-wrapper" ng-controller="sliderCtrl">
+			<div class="slide-section">
+				<div class="left-slide-section">
+					<div id="sell-content">
+						<img src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/quality.png" alt="" />
+						<h2><span class="beepigreen">Smart</span> <br>Quality Transparency</h2>
+						<p class="submenu-text">
+						<ul class="sliderList leftList">
+							<li>Quality Transparency</li><li>Value for Money</li><li>Know what matters</li>
+						</ul>
+						</p>
+					</div>
+				</div>
+				<div class="center-slide-section clear">
+					<div class="arrow-left">
+						<a id="sellcircle"><img id="arrowsell" src="images/arrow-left.png" alt="" /> <span>Quality</span></a>
+					</div>
+					<div class="arrow-right">
+						<a id="buycircle"><span>Price</span> <img id="arrowbuy" src="images/arrow-right.png" alt="" /></a>
+					</div>
+					<div class="play-vid">
+						<!-- <a href="#video-popup" data-role="popup"><img src="images/HomePageVideoPlay.png" alt="" /></a> -->
+						<h2 id="howItWorks">How It Works?</h2>
+						<video id="bannerVideo" width="560" height="315" poster="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/ihealthmantra.png" ng-click="playMe('#bannerVideo','#playIconBanner')" preload="none">
+							<source src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/ihealthmantra.mp4" type="video/mp4" />  
+						</video>
+						<md-button id="playIconBanner" class="videoPlayImg" ng-click="playMe('#bannerVideo','#playIconBanner')">
+							<img src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/HomePageVideoPlay.png" alt="" />
+						</md-button>
+						<div id="video-popup" class="video-popup-container">
+							<a href="#" class="popup-overlay"></a>
+							<div class="popup-content">
+							<span class="close-video-popup">x</span>
+								<div class="video-responsive">														
+									<video width="560" height="315" poster="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/ihealthmantra.png">
+									  <source src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/ihealthmantra.mp4" type="video/mp4" />									  
+									</video>									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right-slide-section">
+					<div id="buy-content">
+						<img src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/price.png" alt="" />
+						<h2><span class="beepiblue">Fair</span> Price Transparency</h2>
+						
+						<p class="submenu-text">
+						<ul class="sliderList rightList">
+							<li>Pay Fair Price</li><li>Search Prices Transparently</li><li>Never Overpay</li>
+						</ul>
+						</p>                  
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="testimonials-section" ng-controller="testimonialsCtrl">
+			<div class="wrapper">
+				<h1 class="section-title">Testimonials</h1>
+				<div class="col-1-2 first">
+					<div class="video-responsive">
+						<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/J_kUoznDGhk" frameborder="0" allowfullscreen></iframe> -->
+						<md-button id="playIcon1" class="videoPlayImg" ng-click="playMe('#testimonial1','#playIcon1')">
+							<img src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/HomePageVideoPlay.png" alt="" />
+						</md-button>
+						
+						<video id="testimonial1" width="560" height="315" poster="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/testimonial1.png" ng-click="playMe('#testimonial1','#playIcon1')" preload="none">
+							  <source src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/testimonial1.mp4" type="video/mp4" />
+						</video>
+					</div>
+					<p class="author-name">Sumeet Chawla (IT Professional)</p>
+					<p class="author-desc"></p>
+				</div>
+				<div class="col-1-2">
+					<div class="video-responsive">
+						<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/J_kUoznDGhk" frameborder="0" allowfullscreen></iframe> -->
+						<md-button id="playIcon2" class="videoPlayImg" ng-click="playMe('#testimonial2','#playIcon2')">
+							<img src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/HomePageVideoPlay.png" alt="" />
+							
+						</md-button>
+						<video id="testimonial2" width="560" height="315" poster="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/testimonial2.png" ng-click="playMe('#testimonial2','#playIcon2')" preload="none">
+							  <source src="https://s3-ap-southeast-1.amazonaws.com/ihmcustomertestimonials/testimonial2.mp4" type="video/mp4" />
+						</video>
+					</div>
+					<p class="author-name">Kusum Awasthi (Senior Citizen)</p>
+					<p class="author-desc"></p>
+				</div>
+			</div>
+		</div>

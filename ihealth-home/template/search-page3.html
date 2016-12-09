@@ -1,0 +1,277 @@
+<link rel="stylesheet" type="text/css" href="../style/search-style3.css">
+<!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container" id="search-results-content" ng-controller="searchResultController">
+	<div class="main-contenter">
+	<!-- left section -->
+	 <div layout="column" class="left-filter-section">
+	   <div class="filter-title" ng-click="togleShowFilterCriteria()">
+	   		<!-- <md-subheader class=""><span class="filter-subtitle-apply">Apply&nbsp;</span>Filters</md-subheader> -->
+	   		<i class="fa fa-sliders" aria-hidden="true"></i>
+	   		<md-button class="filter-btn">	   			
+	   			<span class="filter-subtitle-apply">Apply&nbsp;</span>Filters
+	   		</md-button>
+	   </div>
+
+	   <div class="filter-criteria" id="accordion">
+	   <div id="price-filter">
+	   		<h4> Price <span class="pickedRange">(0 - {{priceRange.value}})</span></h4>   		
+	   		<div class="slider-top-margin">
+            	<md-slider-container>
+            	  <i class="fa fa-inr" aria-hidden="true"></i>
+			      <md-slider min="0" max="25000" step="1000" ng-model="priceRange.value" aria-label="price" id="price-slider" class="md-primary"/> <!-- md-discrete -->
+			      </md-slider>	      
+				</md-slider-container>
+			</div>
+	   </div>	   
+	   <md-divider></md-divider>
+
+	   <div id="distance-filter">
+	   		<h4> Distance (Km) <span class="pickedRange">(0 - {{distanceRange.value}})</span></h4>
+	   		<div class="slider-top-margin">
+	   			<md-slider-container>
+	   			  <i class="fa fa-street-view" aria-hidden="true"></i>
+			      <md-slider min="0" max="50" step="1" ng-model="distanceRange.value" aria-label="max" id="distance-slider" class="md-primary"/>
+			      </md-slider>	      
+			    </md-slider-container>
+			</div>	   		
+	   </div>
+	   <md-divider></md-divider>
+
+	   <div id="certificate-filter">
+	   		<h4> Accredation's </h4>
+	   		<div class="certification-wrapper">
+	   			<md-radio-group ng-model="filter.certification" class="lab-certification">
+			      <md-radio-button value="ISO" class="cert">ISO</md-radio-button>
+			      <md-radio-button value="NABL" class="cert"> NABL </md-radio-button>
+			      <md-radio-button value="CAP" class="cert"> CAP </md-radio-button>
+			    </md-radio-group>
+			</div>	   		
+	   </div>
+	   <md-divider></md-divider>
+
+	   <div id="amenity-filter">
+	   		<h4> Amenities </h4>
+	   		<div>
+	   			<md-switch class="md-primary homeDeliverySwitch" ng-model="data.homeSample" aria-label="homeSample Switch" ng-change="onChange(data.homeSample)">
+    				Home Sample 
+  				</md-switch>
+	   		</div>	   		
+	   </div>
+	   <md-divider></md-divider>
+
+	   <div id="local-filter">
+	   		<h4> Location </h4>
+	   		<div class="lab-local">
+		   		<div ng-repeat="location in locations">
+	              <md-checkbox ng-checked="exists(location, selectedLocations)" ng-click="toggle(location, selectedLocations)">
+	                {{ location }} 
+	              </md-checkbox>
+	            </div>
+	            <!-- <div class="more-lable" ng-click="">More</div> -->
+            </div>
+
+	   			<!-- <div ng-model="filter.local" class="lab-local" layout="column">
+		   		  <md-checkbox ng-checked="" ng-click="toggle(item, selected)">
+	                Hadapsar 
+	              </md-checkbox>
+	              <md-checkbox ng-checked="" ng-click="toggle(item, selected)">
+	                Aundh 
+	              </md-checkbox>
+	              <md-checkbox ng-checked="" ng-click="toggle(item, selected)">
+	                Shivaji Nagar 
+	              </md-checkbox>
+			    </div> -->	   		
+	   </div>
+	   <md-divider></md-divider>
+	
+	   <div id="rating-filter">
+	   		<h4> Rating </h4>
+	   		<div class="starWrapper slider-top-margin" layout-gt-sm="column" layout-sm="column" layout-xs="column" layout-align="center start">
+	   			<div layout="row">
+	   				<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>   				
+	   			</div>
+	   			<!--<div layout="row">
+	   				<jk-rating-stars rating="4" read-only="true" ></jk-rating-stars>	   				
+	   			</div>
+	   			<div layout="row">
+	   				<jk-rating-stars rating="3" read-only="true" ></jk-rating-stars>	   				
+	   			</div>
+	   			<div layout="row">
+	   				<jk-rating-stars rating="2" read-only="true" ></jk-rating-stars>			
+	   			</div>
+	   			<div layout="row">
+	   				<jk-rating-stars rating="1" read-only="true" ></jk-rating-stars>				
+	   			</div> -->
+
+	   			<!-- <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+ -->	   		</div>	   		
+	   </div>
+	   <md-divider></md-divider>
+
+	   <div id="recomendation-filter">
+	   		<h4> Recomendation </h4>
+	   		<div class="lab-recomendation">
+		   		<!-- <div ng-repeat="recomendation in recomendations">
+	              <md-checkbox ng-checked="exists(recomendation, selectedRecomendations)" ng-click="toggle(recomendation, selectedRecomendations)">
+	                {{ recomendation }} 
+	              </md-checkbox>
+	            </div> -->
+	            <!-- <div class="more-lable" ng-click="">More</div> -->
+	            <div><a href="#">click here for lowest rates</a></div>
+	            <div><a href="#">click here for highest rates</a></div>
+	            <div><a href="#">click here for related tests</a></div>
+	            <div><a href="">click here for xyz</a></div>
+            </div>	   		
+	   </div>  
+
+
+	   </div>
+	 </div>
+	  
+	  <!-- Right Section : Showing Search Results-->
+	  <md-content layout="column" class="results">
+	  	<div class="results-title" layout="row">
+	  		<div flex="50" layout="row" layout-align="start center">
+	  			Showing results for test
+	  		</div>
+	  		<div flex="50" layout="row" layout-align="end center">
+	  			
+				<md-chips ng-model="selectedTests" class="hide-chips">
+			      <md-autocomplete
+			          md-selected-item="selectedTest"
+			          md-search-text="testSearchText"
+			          md-items="test in querySearch(testSearchText)"
+			          md-item-text="test.name"
+			          placeholder="Add more tests">
+			        <span md-highlight-text="testSearchText">{{test.name}} :: {{test.type}}</span>
+			        <md-not-found>This test is not Available</md-not-found>
+			      </md-autocomplete>
+			      <md-chip-template>
+			        <!-- <span>
+			          <strong>{{$chip.name}}</strong>
+			          <em>({{$chip.type}})</em>
+			        </span> -->
+			      </md-chip-template>
+			    </md-chips>
+			    <!-- <i class="fa fa-plus-square fa-2x" aria-hidden="true"></i> -->
+
+	  		</div>
+	  	</div>
+	  	<div class="test-chips">
+	  		<md-chips ng-model="selectedTests" md-autocomplete-snap
+			              md-transform-chip="transformChip($chip)"
+			              md-require-match="autocompleteDemoRequireMatch" readonly="true" md-removable="true">
+			   	<md-chip-template>
+			        <span>
+			          <strong>{{$chip.name}}</strong>
+			          <em>({{$chip.type}})</em>
+			        </span>
+			    </md-chip-template>
+			</md-chips>
+	  	</div>
+	  	<div class="clear"></div>
+	    <div>
+		<!-- Final option -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline lab-title">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead">
+		            	<span class="lab-rating" ng-click="showRating($event)">
+		            		<!-- <img src="../images/stars.png"/> -->
+		            		<jk-rating-stars rating="4" read-only="true" ></jk-rating-stars> <!-- <a href="">review</a> -->
+		            		<md-tooltip md-direction="right">
+					            <div class="lab_rating">8.9 out of 10 from <span class="lab_rating_cust_count"> 20 customers</span>
+			            		</div>
+					        </md-tooltip>
+		            	</span>
+		            	<div class="lab-address">
+		            		<i class="fa fa-map-marker fa-lg" aria-hidden="true" ng-click="showAddressMap($event)"></i>
+		            		Kumaraswamy Layout, Bangalore 560078.
+		            	</div> 
+		            	<div class="lab-accredations">
+		            		<i class="fa fa-shield fa-lg" aria-hidden="true" ng-click=""></i>
+		            		NABL & CAP Accredated
+		            	</div>
+		            	<!--<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	phone: 9090090900-->
+			            <span layout="row">
+			          		<md-button class="bookingDate" ng-click="openCalender()"><span class="bookNowTitle"> Book Now</span>			          		
+			          		</md-button>
+			          		<!-- calender will opwn on trigger event -->
+			          		<md-datepicker md-is-open="isOpen" md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" ng-change="selectedDate()" ng-blur="isOpen==false" md-min-date="minDate" md-max-date="maxDate" style="display: none;">
+				          	</md-datepicker>
+
+			          		<md-button class="compare-btn">
+			          			<md-switch class="md-primary" ng-model="data.compare" aria-label="compare switch" ng-change="onChange(data.compare, 'Item Name', '200')">
+    							Compare  <!-- : {{ message }} -->
+  								</md-switch>
+  							</md-button>
+			          		<div class="price">
+			          			<span class="original-price">₹ 500</span>
+			          			<span>₹ 300</span>
+			          			<!-- <span class="save-badge">10% Off</span> -->
+			          		</div>			          		
+	          		  	</span>
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-custom card-media">
+		            	<!-- <img src="../images/nophoto.png"/> -->
+		            	<jk-carousel
+				        data="dataArray"
+				        item-template-url="'template/images-template.html'"
+				        max-width="800" 
+				        max-height="500"><!-- auto-slide="true" auto-slide-time="2000" -->
+				        </jk-carousel>
+		            </div>
+		            <div class="price1">
+		            	<span class="original-price">₹ 500</span>
+		            	₹ 300
+		            	<!-- <span class="save-badge">10% Off</span> -->
+		            </div>
+		          </md-card-title-media>
+		        </md-card-title>
+	      </md-card>
+      </div>
+	  </md-content>
+	  <div class="clear"></div>
+	  <div id="comparelist" layout="column">
+	  	<div class="errors comparelistMax">
+	        <div>Sorry you can add maxmium of 3 items.</div>
+	    </div>
+	  	<div class="comparelist-title" layout="row" layout-align="center center">	  		
+	  		Your compare list
+	  		<span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+	  	</div>
+
+	  	<!-- <md-chips ng-model="compareListItem" md-autocomplete-snap
+			              md-transform-chip="transformChipForCompare($chip)"
+			              md-require-match="autocompleteDemoRequireMatch">
+			   	<md-chip-template>
+			        <span>
+			          <strong>{{$chip.name}}</strong>
+			          <em>({{$chip.price}})</em>
+			        </span>
+			    </md-chip-template>
+		</md-chips> -->
+
+		<form name="comparelistForm">
+		  
+	      <md-chips ng-model="compareListItem" name="comparelistName"
+	      			md-transform-chip="transformChipForCompare($chip)"
+	      			md-removable="true" readonly="true">
+	        <md-chip-template>
+	          <strong>{{$chip.name}}</strong>
+	          <!-- <em>₹ {{$chip.price}}</em> -->
+	          <strong class="compare-item-price">₹ {{$chip.price}}</strong>
+	        </md-chip-template>
+	      </md-chips>	      
+	    </form>
+	  	<md-button class="compare-list-btn">Compare</md-button>
+	
+	  </div>
+  </div>
+</div>

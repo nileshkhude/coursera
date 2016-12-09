@@ -1,0 +1,110 @@
+<link rel="stylesheet" type="text/css" href="../style/corporate.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div id="corporate-page" ng-controller="headerCtrl as HHctrl">
+<!-- <md-toolbar class="seller-toolbar container">
+      <div class="md-toolbar-tools">
+        <h2>
+          <md-icon md-svg-src="../images/ic_nature_people_24px.svg" class="name"></md-icon>
+          <span class="queue-lbl">Queues</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-raised" aria-label="Create" ng-click="createQueue()">
+          create
+        </md-button>
+        <md-button class="md-raised" aria-label="Delete">
+          Delete
+        </md-button>
+      </div>
+</md-toolbar> -->
+
+<div class="corporate-banner">
+  <div class="text">
+    <div>Employee Wellness </div>
+    <div>and</div>
+    <div>Health Services</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="corporate-boxes" layout="column">
+    <div layout="column" layout-gt-sm="row" >
+      <md-card flex-gt-sm="50" layout-gt-sm="row" layout-align="center center">
+        <div flex-gt-sm="50">
+         <img src="../images/corporate/wellness-service.jpg" class="" alt="" /> 
+        </div>
+        <div flex-gt-sm="50">
+          <h3 class="corporate-box-title">Wellness Services</h3>
+          <span class="box-text">Lifestyle improvements, Health Talks and other interactive sessions.</span>
+        </div>
+      </md-card>
+
+      <md-card flex-gt-sm="50" layout-gt-sm="row" layout-align="center center">
+        <div flex-gt-sm="50">
+         <img src="../images/corporate/preventive-health-checkups.jpg" alt="" /> 
+        </div>
+        <div flex-gt-sm="50">
+          <h3 class="corporate-box-title">Preventive Health Checkups</h3>
+          <span class="box-text">Annual preventive health checkups for the employees and Vaccinations.</span>
+        </div>
+      </md-card> 
+   </div>
+
+   <div layout="column" layout-gt-sm="row" >
+      <md-card flex-gt-sm="50" layout-gt-sm="row" layout-align="center center">
+        <div flex-gt-sm="50">
+         <img src="../images/corporate/alternative-therapy-sessions.jpg" class="" alt="" /> 
+        </div>
+        <div flex-gt-sm="50">
+          <h3 class="corporate-box-title">Alternative Therapy Sessions</h3>
+          <span class="box-text">Integrated and holistic medicine that includes Ayurveda and Homeopathy.</span>
+        </div>
+      </md-card>
+
+      <md-card flex-gt-sm="50" layout-gt-sm="row" layout-align="center center">
+        <div flex-gt-sm="50">
+         <img src="../images/corporate/women-program.jpg" alt="" /> 
+        </div>
+        <div flex-gt-sm="50">
+          <h3 class="corporate-box-title">Women Programs</h3>
+          <span class="box-text">Health and Wellness programs designed specifically for women employees.</span>
+        </div>
+      </md-card> 
+   </div>
+  </div>
+
+  <div class="corporate-benefits">
+    <md-card  layout="column" layout-gt-sm="row" layout-align="center center">
+         <div flex-gt-sm="50" class="benefits-img">
+         </div>
+         <div flex-gt-sm="50" class="benefits">
+            <h2>Key Features</h2>
+            <div>
+              <ul>
+                <li>Integrated portfolio leading to cost savings.</li>
+                <li>Multi-location support.</li>
+                <li>No need to work with multiple players - we cater to all the health and wellness requirements.</li>
+                <li>We work as a health partner to achieve your health/wellness objectives.</li>
+              </ul>
+            </div>            
+            <md-button class="contact-now" ng-click="Hctrl.showPrerenderedDialog($event);">Contact Now</md-button>
+        </div>
+      </md-card>
+  </div>
+
+  <!-- <div class="benefit-section" layout="column" layout-align="start center">
+     <div class="corporate-benefits">
+        <h2>Key Features</h2>
+        <div>
+          <ul>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Integrated portfolio leading to cost savings.</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Multi-location support.</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>No need to work with multiple players - we cater to all the health and wellness requirements.</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>We work as a health partner to achieve your health/wellness objectives.</li>
+          </ul>
+        </div>
+     </div>
+     <md-button class="contact-now" ng-click="HHctrl.showPrerenderedDialog($event);">Contact Now</md-button>
+   </div> -->
+</div>
+</div>

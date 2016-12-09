@@ -1,0 +1,423 @@
+body,html{
+	background-color: #efefef;
+	height: inherit !important;
+}
+
+md-sidenav.left-filter-section {
+    width: 25%;
+    height:100%;
+    padding:1%;
+    background-color: #ffffff;
+    float: left;
+    margin-right: 0.5%;
+}
+
+md-content.results {
+	width: 74.5%;
+    background-color : #ffffff;
+    height:100%;
+    padding:1%;
+    float: left;
+}
+
+.left-filter-section h4{
+	padding: 5% 0;
+}
+
+#search-results-content{
+	margin: 1% auto;
+}
+
+.filter-title .md-subheader{
+	background: #25b273; /*#49a4d4;*/
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+#selectedRange span input{
+	width: 35%;
+    text-align: center;
+}
+
+#rating-filter>div>div{
+	text-align: center;	
+}
+
+md-card md-card-title md-card-title-media .md-media-sm{
+	width: 100px;
+}
+
+md-content.results .md-headline{
+	color: #49a4d4;
+    font-weight: 600;
+}
+
+.price{
+	padding: 2%;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+
+md-card:hover{
+	box-shadow: 0px 0px 4px 1px #49a4d4;
+}
+
+md-card:hover > md-card-actions button.md-button{
+	background: #0a87c7;
+}
+
+md-content.results md-card .md-button{
+	color: #fff;
+	background: #49a4d4;
+	text-transform: capitalize;
+}
+
+md-content.results .md-button.datepickerCustom{
+	width: 20%;
+}
+
+.md-button.datepickerCustom .md-datepicker-button.md-icon-button:hover{
+	background:#0977b1;
+}
+
+md-card .md-button.md-default-theme:not([disabled]):hover, md-card .md-button:not([disabled]):hover{
+	background: #4b87f1;
+}
+
+
+/*.md-default-theme .md-datepicker-input, .md-datepicker-input {
+			
+			color:#fff;;
+		}
+.md-default-theme .md-datepicker-triangle-button .md-datepicker-expand-triangle, .md-datepicker-triangle-button .md-datepicker-expand-triangle {
+			
+			border-top-color: #fff;
+			width: initial;
+			margin: 0px;
+			padding: 0px;
+}
+.md-default-theme .md-datepicker-input-container, .md-datepicker-input-container {
+			
+			border-bottom-color: #fff;
+}*/
+
+
+md-nav-bar.tabbing button.md-button._md-nav-button{
+	background: #fff;
+    color: #49a4d4;
+    text-transform: capitalize;
+}
+
+md-nav-bar.tabbing button.md-button._md-nav-button:hover{
+	background: #efefef;
+}
+
+md-nav-bar.tabbing .md-nav-item:first-of-type{
+	margin-left:0;
+}
+
+md-nav-bar.md-default-theme.tabbing md-nav-ink-bar, md-nav-bar.tabbing md-nav-ink-bar{
+	color: #49a4d4;
+	background: #49a4d4;
+}
+
+
+
+
+md-card-title-text.caustomMargin{
+	margin-left: 2%;
+}
+
+.rating{
+    background-image: url(../images/rating.png);
+    background-position: 0px -205px;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 40%;
+    display: inline-block;
+}
+
+.md-datepicker-input-mask{
+	height: 0;
+}
+
+md-nav-bar.tabbing button._md-nav-button.md-accent.md-button.ng-scope.md-default-theme.md-ink-ripple.md-active.md-primary {
+    background: #efefef;
+}
+
+.ratingDiv{
+	position: relative;
+    top: 8%;
+}
+
+.ratingDiv div{
+	text-align: center;
+}
+
+
+
+/* Make tabbing Section full width */
+md-card-actions md-content.tabs{
+	width: 100%;
+}
+
+md-nav-bar.tabbing ul._md-nav-bar-list{
+	background:#ffffff;
+}
+
+.ext-content p{
+	color: red;
+}
+
+.lab_rating_img{
+	width: 15%;
+	float: left;
+	padding: 1%;
+}
+
+.lab_short_info{
+	width: 85%;
+	float: left;
+	padding: 1%;
+	border-left: 1px solid #c3baba;
+}
+
+.lab_rating_cust_count{
+	color: #49a4d4;
+}
+
+.select_timeslot_lbl{
+	color: #49a4d4;
+	font-size: 0.8em;
+}
+
+.timeslot_selection .md-button.md-raised .md-ripple-container:hover{
+	background: #49a4d4;
+}
+
+
+.lab_booking_slots{
+	background:#efefef;
+	max-width: 90%;
+	border-radius: 10px;
+	padding: 1%;
+}
+
+.lab_booking_header{
+	font-size: 1.3em;
+}
+
+.lab_facilities_icons, .lab_facilities_lbl{
+	padding: 1%;
+}
+
+.lab_facilities_icons span{
+	cursor: pointer;
+}
+
+.lab_facilities_lbl{
+	width: 12%;
+	float: left;
+}
+.lab_facilities_icons{
+	width: 88%;
+	float: left;
+}
+
+span.lab_facilities_icons span{
+	margin:0 1% 0 0;
+}
+
+md-card md-card-title md-card-title-media .md-media-custom{
+	width: 200px;
+	/*height: 200px;*/
+}
+
+md-card md-card-title md-card-title-media .md-media-custom1{
+	width: 250px;
+	/*height: 200px;*/
+}
+
+.color-overwrite md-icon.md-default-theme, .color-overwrite md-icon{
+	color: #000;
+}
+
+.more-slots md-icon.md-default-theme, .more-slots md-icon{
+	color: #ffffff;
+}
+
+.more-slots span{
+	text-transform: none;
+}
+
+md-content.results md-card .timeslot_selection .md-button{
+	margin: 6px 3px;
+	min-width: 0;
+	min-height: 0;
+	background:#ffffff;
+	color: #000000;
+}
+
+md-content.results md-card .timeslot_selection .md-button:hover{
+	color: #ffffff;
+}
+
+md-content.results md-card .timeslot_selection .md-button.active{
+	background: #49a4d4;
+	color: #ffffff;
+}
+
+md-card-title-media .price-compare-btn{
+	margin:3px;
+}
+
+.price-compare-btn .md-button.price-section{
+	margin: 2px 0;
+	padding: 0;
+}
+
+.price-compare-btn span.pricefinal{
+	font-size: 22px;
+}
+
+.price-compare-btn > div{
+	display: inline-flex; /*inline-block;*/
+}
+
+.price-compare-btn .md-button.add-compare,.price-compare-btn .md-button.get-distance{
+	margin:2px 4px;
+}
+
+.price-compare-btn .md-button.get-distance{
+	background: #1f6990;
+}
+
+.price-compare-btn .md-button.get-distance:hover{
+	background: #1f6990;
+}
+
+.price-compare-btn .md-button.add-compare{
+	background: #807878;
+}
+
+.price-compare-btn .discount{
+	background: #1f6990;
+}
+
+.md-subhead.color-overwrite{
+	color: #000000 !important;
+}
+
+
+.add-compare md-checkbox{
+	margin:0;
+}
+
+.add-compare md-checkbox.md-default-theme.md-checked .md-icon, .add-compare md-checkbox.md-checked .md-icon{
+	background-color: #49a4d4;
+	border-radius: 50%;
+}
+
+.add-compare md-checkbox.md-default-theme:not(.md-checked) .md-icon, .add-compare md-checkbox:not(.md-checked) .md-icon{
+	border-color: #ffffff;
+	border-radius: 50%;
+}
+
+
+.add-compare md-checkbox.md-default-theme.md-checked .md-icon:after, .add-compare md-checkbox.md-checked .md-icon:after{
+	border-color: #ffffff; 
+}
+
+
+/* Angular Carousel */
+.jk-carousel{
+	height: 200px !important;
+}
+
+.jk-carousel .radio-buttons-container{
+	margin-bottom: 2%;
+	margin-left: 2%;
+	display:none;
+}
+
+md-content.results md-card .jk-carousel .left-arrow-button,
+md-content.results md-card .jk-carousel .left-arrow-button:hover{
+	background: transparent;
+	color: transparent;
+	background-image: url(../images/ic_keyboard_arrow_left_white_24dp.png);
+	background-repeat: no-repeat;
+	fill: #ffffff;
+}
+
+md-content.results md-card .jk-carousel .right-arrow-button,
+md-content.results md-card .jk-carousel .right-arrow-button:hover{
+	background: transparent;
+	color: transparent;
+	background-image: url(../images/ic_keyboard_arrow_right_white_24dp.png);
+	background-repeat: no-repeat;
+}
+
+.jk-carousel .md-icon-button md-icon{
+	color: transparent;
+}
+
+/*md-radio-button.md-default-theme .md-on, md-radio-button .md-on{
+	background-color: #25b273;
+}
+
+.jk-carousel md-radio-button .md-off, .jk-carousel md-radio-button .md-on{
+	width: 15px;
+	height: 15px;
+}*/
+
+.bookingDate .md-datepicker-input-container{
+	width: 0;
+}
+
+.bookingDate .md-datepicker-input-container .md-datepicker-input{
+	opacity: 0;
+}
+
+.bookingDate md-datepicker{
+	padding-right: 0px;
+}
+
+.bookingDate md-datepicker md-icon{
+	color: #ffffff;
+}
+
+.bookNowTitle{
+    padding-left: 7%;
+    vertical-align: middle;
+}
+
+/*.belowImg{
+	margin-left: 0 20px;
+}*/
+
+.belowImgBookDate{
+	margin: 0 10%;
+}
+
+/*.customCheckbox md-icon{
+	border-radius: 50%;
+}*/
+
+.compare-btn md-switch{
+	margin: 0;
+}
+
+.compare-btn{
+	background: #25b273 !important;
+}
+
+.compare-btn md-switch.md-default-theme.md-checked .md-thumb, md-switch.md-checked .md-thumb{
+	background-color: #49a4d4;
+}
+
+md-slider#price-slider .md-sign .md-thumb-text{
+	font-size: 10px;
+}

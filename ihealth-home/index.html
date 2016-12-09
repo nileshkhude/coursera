@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html ng-app="ihealthMantra" ng-cloak="">
+	<head ng-controller="fontCtrl">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+		<meta name="description" content="iHealthMantra helps customers connect and book Appointments with Doctors, Skin / Dental Clinic ,Diagnostic / Radiology / Pathology Labs , Preventive Health Care Packages Provider in India" />
+		<meta name="keywords" content="Diagnostics Centres, Radiology, Pathology, MRI scan, CT, ECG Testing labs, X-RAY, Thyrocare, Diabatic testing lab, Weight loss, SRL, Preventive health Checkup, Sonography center, CBC, Blood Testing Centres, Thyroid Testing Laboratory, Diagnostics Centres for Health packages, Diagnostics Centres for Ultrasound, Diagnostics Centres for 2D/3D echo, Diagnostics Centres in Pune, Diagnostics Centres in Mumbai, Diagnostics Centres in Bangalore, RI scan in Pune, MRI scan in Bangalore, MRI scan in Mumbai, Thyrocare Lab in Pune , Thyrocare Lab in Mumbai, Thyrocare Lab in Bangalore, Master Health Checkup, Fertility checkup, Child Checkup, Hospital in Pune, Heart Surgary hospital in Pune" />
+		<meta name="google-signin-client_id" content="35212082201-p79d58evrcu0e3u59fekvmgmk8sd9rad.apps.googleusercontent.com">
+		<title>Index</title>
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		
+		<!-- Angular Material requires Angular.js Libraries -->
+		<script src="app/lib/angular.js"></script>
+		<script src="app/lib/angular-route.min.js"></script>
+		<script src="app/lib/angular-animate.min.js"></script>
+		<script src="app/lib/angular-aria.min.js"></script>
+		<script src="app/lib/angular-messages.min.js"></script>	
+		<script src="app/lib/angular-sanitize.min.js"></script>	
+		
+
+		<!-- Angular Material Library -->
+		<script src="app/lib/angular-material.min.js"></script>
+
+		<!-- Angular Carousel Library -->
+		<script src="app/lib/jk-carousel.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="app/lib/css/jk-carousel.min.css">
+
+		<!-- Angular Star rating Library -->
+		<script src="app/lib/jk-rating-stars.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="app/lib/css/jk-rating-stars.min.css">
+		
+		<!-- Angular Range Slider -->
+		<!--<link rel="stylesheet" href="app/lib/css/angular-range-slider.css">
+    	<script src="app/lib/angular-range-slider.min.js"></script>-->
+
+		<script src="app/lib/svg-assets-cache.js"></script>
+		<!-- <link rel="stylesheet" href="/app/application.css" /> -->
+		<!-- Your application bootstrap  -->
+		<script src="app/js/application.js"></script>
+		<script type="text/javascript" src="app/js/search-results.js" defer></script>
+		<script type="text/javascript" src="app/js/manage-queue.js" defer></script>
+		<script type="text/javascript" src="app/js/corporate.js" defer></script>
+		<script type="text/javascript" src="app/js/school.js" defer></script>
+		<script type="text/javascript" src="app/js/seller.js" defer></script>
+		<!-- Angular Material style sheet -->
+		<link rel="stylesheet" href="app/lib/css/angular-material.min.css">
+		<link rel="stylesheet" href="app/lib/css/font-awesome/css/font-awesome.min.css">
+		<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&region=in"></script> &region=in&language=en,location=19.0760,72.8777,radius=300 -->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgMVhmzusxTt2skcnT31Nr2t070QVWVEk&libraries=places&region=in"></script> 
+		<script src="app/js/place-autocomplete.js"></script>
+		<link ng-href="{{font.url}}" rel="stylesheet">
+		<script src="http://www.google.com/recaptcha/api.js?render=implicit" async defer></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+jQuery(document).ready(function($){
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+    alert("hi");
+});
+</script> -->
+
+		<!-- <script>
+    function onSuccess(googleUser) {
+      var profile = googleUser.getBasicProfile();
+	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 35,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script> -->
+		
+</head>
+<body ng-style="font.title">	
+		<div class="headMainhead" ng-include="'template/header.html'"></div>
+		<div id="map"></div>
+		<div ng-view></div>
+
+		<!-- including footer -->
+		<div ng-include="'template/footer.html'"></div>
+
+		<script src="js/jquery.js"></script>
+		<script>
+			$(document).ready(function() {
+				var n = !0,
+					t = !0;
+				$("#sellcircleentry, #sellcircle").click(function() {
+					n && (n = !1, setTimeout(function() {
+						n = !0
+					}, 800), $("#demo-wrapper").toggleClass("show-nav"));					
+					$("#demo-wrapper").hasClass("show-nav") ? ($("#arrowsell").addClass("clockwise180"), $("#sellcircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowsell").removeClass("clockwise180"), $("#sellcircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
+				});
+				$("#buycircleentry, #buycircle").click(function() {
+					t && (t = !1, setTimeout(function() {
+						t = !0
+					}, 800), $("#demo-wrapper").toggleClass("show-nav2"));
+					$("#demo-wrapper").hasClass("show-nav2") ? ($("#arrowbuy").addClass("clockwise180"), $("#buycircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowbuy").removeClass("clockwise180"), $("#buycircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
+				});
+			});
+			$( document ).on( 'click', 'a[data-role=popup]', function(){
+				var popupId = $( this ).attr( 'href' );
+				$( popupId ).fadeIn();
+				return false;
+			} );
+			$( document ).on( 'click', 'a.popup-overlay', function(){
+				$( this ).parent().fadeOut();
+				return false;
+			} );
+			$( document ).on( 'click', '.menu-toggle', function(){
+				$( this ).closest( 'li' ).children( '.sub-menu' ).slideToggle();
+				return false;
+			} );
+			$( document ).on( 'click', '.contact-toggle', function(){
+				$( '.contact-wrapper' ).slideToggle();
+				return false;
+			} );
+		</script>
+	<!-- <script src='https://app.popupdomination.com/a/EkoyXK4xM.js'></script> -->
+	</body>
+</html>

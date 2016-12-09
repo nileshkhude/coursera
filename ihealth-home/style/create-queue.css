@@ -1,0 +1,90 @@
+body,html{
+	background-color: #ffffff;/*#efefef;*/
+	height: inherit !important;	
+}
+
+#create-queue-page{
+	background: #ffffff;
+	padding: 1% 0;
+}
+
+md-toolbar.seller-toolbar{
+	background: #49a4d4;
+	margin-bottom: 1%;
+}
+
+.create-queue .form-title{
+	color: #24336f;
+	padding: 1%;
+	background: #dae6fc;
+    margin: 0 -14px;
+}
+
+.create-queue md-divider{
+	margin: 0 -14px;
+}
+
+ md-toolbar.seller-toolbar .queue-lbl{
+	padding-left: 10px;
+} 
+
+.queues1 .queue{
+	width: 49%;
+	padding: 1%;
+	float: left;
+	box-sizing: border-box;
+    background: #ddd;
+    margin: 5px;
+}
+
+.queues1 lable{
+  display: block;
+  width: 30%;
+  float: left;
+}
+
+.queues1 .fa{
+  padding: 0 5px 0 0;
+}
+
+.container.create-queue{
+	background: #f2f7f8;
+} 
+
+md-content.md-default-theme.create-queue-form, md-content.create-queue-form{
+	background: #f2f7f8;
+}
+
+.create-queue-form md-input-container.md-default-theme label, 
+.create-queue-form md-input-container label, 
+.create-queue-form md-input-container.md-default-theme .md-placeholder, 
+.create-queue-form md-input-container .md-placeholder{
+	color: #24336f;
+}
+
+.create-queue-form md-input-container.md-default-theme > md-icon, .create-queue-form md-input-container > md-icon{
+	color: #24336f;
+}
+
+#create-queue-page .md-button.md-default-theme.md-raised, #create-queue-page .md-button.md-raised {
+    color: #f2f7f8;
+    background-color: #24336f;
+}
+
+#create-queue-page .create-queue-form md-input-container.md-icon-left {
+    padding-right: 15px;
+}
+
+.md-button{
+	text-transform: capitalize;
+}
+
+md-content.create-queue-form{
+	padding: 0 20%;
+}
+
+@media only screen and (max-width: 1024px){
+	md-content.create-queue-form{
+		padding: 0;
+	}
+}

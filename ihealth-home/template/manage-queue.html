@@ -1,0 +1,115 @@
+<link rel="stylesheet" type="text/css" href="../style/manage-queue.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div id="seller-page" ng-controller="queueController">
+<md-toolbar class="seller-toolbar container">
+      <div class="md-toolbar-tools">
+        <!-- <md-button aria-label="Go Back">
+          Go Back
+        </md-button> -->
+        <h2>
+          <md-icon md-svg-src="../images/ic_nature_people_24px.svg" class="name"></md-icon>
+          <span class="queue-lbl">Queues</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-raised" aria-label="Create" ng-click="createQueue()">
+          create
+        </md-button>
+        <md-button class="md-raised" aria-label="Delete">
+          Delete
+        </md-button>
+        <!-- <md-button class="md-fab md-mini" aria-label="Favorite">
+          <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+        </md-button> -->
+      </div>
+</md-toolbar>
+
+<div class="container manage-queue">
+	 <div class="queues" layout="column">
+	 <div layout="column" layout-gt-sm="row" >
+	 	<md-card flex-gt-sm="50">
+			<md-card-title>
+			  <md-card-title-media>
+	            <div class="md-media-lg card-media">
+	            	<img src="http://placehold.it/200x200" alt="">
+	            </div>
+	          </md-card-title-media>
+	          <md-card-title-text>
+	           <span class="md-headline">Queue Name : ABC</span>
+	            <span class="md-subhead">
+	            	<span class="queue-info">
+				 		<p>Total patients in the queue : <span>2</span> </p>
+						<p>Start Time : <span>10:00 AM</span> </p>
+						<p>End Time : <span>10:00 PM</span> </p>
+						<p>Average waiting time : <span>2</span> </p>
+				 	</span>
+	            </span>
+	          </md-card-title-text>
+	        </md-card-title>
+	 	</md-card>
+	
+		<div flex-gt-sm="50">
+		<!-- <span class="headl">Queue Name : ABC</span> -->
+	 	<md-card >
+			<md-card-title>
+			  <md-card-title-media>
+	            <div class="md-media-lg card-media">
+	            	<img src="http://placehold.it/200x200" alt="">
+	            </div>
+	          </md-card-title-media>
+	          <md-card-title-text>
+	          <span class="md-headline">Queue Name : DEF</span>
+	            <span class="md-subhead">
+	            	<span class="queue-info">
+				 		<p>Total patients in the queue : <span>2</span> </p>
+						<p>Start Time : <span>10:00 AM</span> </p>
+						<p>End Time : <span>10:00 PM</span> </p>
+						<p>Average waiting time : <span>2</span> </p>
+				 	</span>
+	            </span>
+	          </md-card-title-text>
+	        </md-card-title>
+	 	</md-card>
+	 	</div>	 	
+	 </div>
+	 </div>
+
+	<!-- 2nd Option -->
+	<div class="queues1">
+		<div class="queue">
+			<div class="title">Queue Name: ABC</div>
+			<div class="content-wrqpper" ng-click="viewQueueDetails()">
+				<div class="image">
+					<img src="http://placehold.it/200x200" alt="">
+				</div>
+				<div class="info">
+					<p>Total patients in the queue : <span>2</span> </p>
+					<p>Start Time : <span>10:00 AM</span> </p>
+					<p>End Time : <span>10:00 PM</span> </p>
+					<p>Average waiting time : <span>2</span> </p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div class="queue">
+			<div class="title">Queue Name: DEF</div>
+			<div class="content-wrqpper">
+				<div class="image">
+					<img src="http://placehold.it/200x200" alt="">
+				</div>
+				<div class="info">
+					<p>Total patients in the queue : <span>2</span> </p>
+					<p>Start Time : <span>10:00 AM</span> </p>
+					<p>End Time : <span>10:00 PM</span> </p>
+					<p>Average waiting time : <span>2</span> </p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+
+</div>
+</div>

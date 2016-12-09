@@ -1,0 +1,317 @@
+<!--<div class="topHeaderDiv">
+	<md-toolbar class="md-padding">
+		<section class="header-top-section container" layout-align="center center" >
+			<span class="lFloat">		
+				<span class="headerTopLeft">Book your Medical Appointment</span>
+			</span>
+					
+			<span class="rFloat">
+				<span class="headerTopRight">				
+					<div class="top-header-icon">
+						<span style="margin-right:10px;">
+							<i class="fa fa-mobile fa-lg"></i>
+						</span>
+					</div>
+					<a href="#" class="dp-widget-link hookLink">download app</a>
+				</span>
+			</span>
+			<div class="clear"></div>
+		</section>			 
+	</md-toolbar>		
+</div> -->
+
+	
+		
+<md-toolbar id="nav-toolbar"><!-- attributes = scroll id="page" ng-class="{min:boolChangeClass}" -->		
+	<div class="main-nav-1 container" ng-controller="headerCtrl as ctrl" ng-cloak>
+
+	
+
+		<div style="visibility: hidden">
+		  <div class="md-dialog-container" layout="column" id="contactUsDialog">
+		    <md-dialog>
+		    	<!-- <md-dialog-actions>
+				    <md-button ng-click="closeDialog()" class="md-primary">Close Dialog</md-button>
+				</md-dialog-actions> -->
+
+		      	<md-dialog-content>
+				    <md-content layout-padding="">
+					    <div class="dialogClose" ng-click="closeDialog()">x</div>
+				    	<h3 class="dialogHeading"> Reach Customer Support </h3>
+					    <form name="inquiryForm" id="inquiryForm">
+					      <div layout="row">
+					        <md-input-container flex="50">
+					          <label>Name</label>
+					          <input required="" name="clientName" ng-model="project.clientName" ng-pattern="/^[a-zA-Z]+ ?[a-zA-z]+$/">
+					          <div ng-messages="inquiryForm.clientName.$error" ng-show="clientNameShow">
+					            <div ng-message="required" ng-show="clientNameShow">This is required.</div>
+					            <div ng-message="pattern" ng-show="clientNameShow">Only alphabets allowed</div>
+					          </div>
+					        </md-input-container>
+
+					        <md-input-container flex="50">
+					          <label>Email</label>
+						        <input required="" type="email" name="clientEmail" ng-model="project.clientEmail" minlength="10" maxlength="50" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+
+						        <div ng-messages="inquiryForm.clientEmail.$error" role="alert">
+						          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']" ng-show="clientEmailShow">
+						            This value should be a valid email
+						          </div>
+						        </div>
+					        </md-input-container>
+					      </div>
+							      
+					      <md-input-container class="md-block">
+					          <label>Mobile</label>
+					          <input id="phoneInput" maxlength="14" name="phone" type="text" required="" ng-keydown="mobileValidate(this)" ng-model="project.phone" ng-pattern="/^[+][9][1] ?[7-9]{1}[0-9]{9}$/" />	        
+					          <div ng-messages="inquiryForm.phone.$error" role="alert" ng-show="clientPhoneShow" >
+					          	<div ng-message="required" ng-show="clientPhoneShow">This is required.</div>
+					            <div ng-message="pattern" ng-show="clientPhoneShow">Please enter a valid phone number.</div>
+					          </div>
+					       </md-input-container>
+
+					      <md-input-container class="md-block">
+					        <label>Description</label>
+					        <input md-maxlength="100" required="" md-no-asterisk="" ng-pattern="/^[a-zA-Z0-9~@^*!%&'()_+=[\]|\\,;.?: -]*$/" name="description" ng-model="project.description">
+					        <div ng-messages="inquiryForm.description.$error" ng-show="clientDesShow">
+					          <div ng-message="required" ng-show="clientDesShow">This is required.</div>
+					          <div ng-message="md-maxlength" ng-show="clientDesShow">The description must be less than 100 characters long.</div>
+					          <div ng-message="pattern" ng-show="clientDesShow">Only alphanumeric and some special characters are allowed</div>
+					        </div>
+					      </md-input-container>
+
+					      <!-- captcha --> 
+					      <div class="g-recaptcha" data-callback="recaptcha" data-sitekey="6Le9jBgTAAAAABiFKYoU3bRTzAIGEC7RCLwIweAx"></div>
+
+					      <div style="text-align: center;">
+					        <md-button type="submit" ng-click="submitContact()" ng-disabled="inquiryForm.$invalid" style="background: #4585f3;margin-bottom:0;">
+					        	<md-icon md-svg-icon="images/ic_send_24px.svg" ng-show="isShow" style="color:white;font-size:36px;height:36px;"></md-icon>
+					        	<md-icon md-svg-icon="img/icons/menu.svg" ng-hide="isShow" style="color:white;font-size:36px;height:36px;"></md-icon>
+					        </md-button>
+					      </div>							      
+					    </form>
+					  </md-content>
+				</md-dialog-content>						
+		    </md-dialog>
+		  </div>
+		</div>
+<!-- <md-fab-speed-dial md-direction="right" class="md-fling" md-open="$root.isOpen" ng-cloak ng-mouseenter="$root.isOpen=true" ng-mouseleave="$root.isOpen=false" md-hover-full>
+  <md-fab-trigger>
+    <md-button aria-label="Add..."><md-icon md-svg-icon="images/ic_send_24px.svg"></md-icon></md-button>
+  </md-fab-trigger>
+
+  <md-fab-actions>
+    <md-button aria-label="Add User">
+      <md-icon md-svg-icon="images/ic_send_24px.svg"></md-icon>
+    </md-button>
+
+    <md-button aria-label="Add Group">
+      <md-icon md-svg-icon="images/ic_send_24px.svg"></md-icon>
+    </md-button>
+  </md-fab-actions>
+</md-fab-speed-dial> -->
+
+		<div class="brand-logo lFloat">				
+				<span>
+					<a href="#/"><img src="images/logo.png" alt=""></a>
+				</span>					
+		</div>
+						
+		<div class="menu-bar-1 rFloat">
+			<span id="updated_city">
+				{{ $root.selectedCityGlobal }}
+			</span>
+			<span>
+				<md-menu md-position-mode="target-right target" md-offset="-45 0">	
+					<md-button class="md-icon-button" md-menu-origin aria-label="Open phone interactions menu" ng-click="ctrl.openMenu($mdOpenMenu, $event)">
+						<md-icon md-svg-icon="images/ic_place_24px.svg" style="color:white;font-size:36px;height:36px;"></md-icon>		
+					</md-button>
+			
+					<md-menu-content width="4">								  
+							<place-autocomplete ng-model="location" style="width: 100%; height: 45px; overflow-y: hidden;"></place-autocomplete>
+					</md-menu-content>
+				</md-menu>											
+			</span>
+					
+					
+			<span>	
+			<md-menu md-position-mode="target-right target" md-offset="0 56">					
+				<md-button class="md-icon-button user-login-logout" md-menu-origin aria-label="Open phone interactions menu" ng-click="ctrl.openMenu($mdOpenMenu, $event)">
+					<md-icon md-svg-icon="images/ic_person_outline_24px.svg" style="color:white;font-size:36px;height:36px;"></md-icon>
+				</md-button>						
+					 
+				<md-menu-content width="4" class="loginMenuContent">					
+					<div id="loginFormWrapper">
+						<h3 class="loginFormTitle">Login</h3>
+						<md-divider></md-divider>
+					  	<form class="lpopup" id="loginForm" name="loginForm" action="/login/process" method="post">
+							<input type="email" placeholder="Email address" name="j_username" ng-model="login.username"> 
+							<input type="password" placeholder="Password" name="j_password" ng-model="login.password">
+
+
+							<section layout="row" layout-sm="row" layout-align="center center" layout-wrap>
+						      <md-button ng-click="document.getElementById('loginForm').submit();" class="md-raised md-primary">Login</md-button>
+						      <md-button ng-href="Register" class="md-primary registerLink">New User? Register</md-button>
+						    </section>
+
+							<!--<div>
+								<input type="button" class="hlogin wdth50" value="Login" onclick="document.getElementById('loginForm').submit();">
+								
+								<a href="Register" class="lregi wdth50" role="menuitem"> Register </a>
+							</div> 
+							<a href="Forget-Password"></a>-->
+							<section layout="row" layout-sm="row" layout-align="center center" layout-wrap>
+						        <md-button ng-href="Forget-Password" target="_self" class="md-primary forgotPassword">Forgot Password?</md-button>
+						    </section>
+						</form>
+
+						<section layout="row" layout-sm="row" layout-align="center center" layout-wrap>
+						    <md-button ng-href="Forget-Password" target="_self" class="md-raised md-primary socialLogins">
+						    <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+						    Facebook Login</md-button>
+						    <md-button ng-href="Forget-Password" target="_self" class="md-raised md-primary socialLogins">
+						    	<i class="fa fa-google fa-lg" aria-hidden="true"></i>
+						    Google Login</md-button>
+						</section>
+						<!-- <span style="margin-left: 47%;">or</span> -->
+						<!--<div class="g-signin2" data-onsuccess="onSignIn"></div>
+						<div id="my-signin2">sin wiwth me </div>-->
+						<!--
+						<div class="socialLogin">
+							<a href="">
+								<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+								<span>Log in with Facebook</span>
+							</a>
+						</div>
+						
+						<div class="socialLogin">
+							<a href="">
+								<i class="fa fa-google fa-lg" aria-hidden="true"></i>
+								<span>Log in with Google</span>
+							</a>
+						</div>-->
+					</div>
+				</md-menu-content>						
+			</md-menu>
+			</span>	
+
+
+			<span class="left-menu">			
+				<md-menu md-position-mode="target-right target" md-offset="0 51">					
+					<md-button class="md-icon-button" md-menu-origin aria-label="Open phone interactions menu" ng-click="ctrl.openMenu($mdOpenMenu, $event)">
+						<md-icon md-svg-icon="img/icons/menu.svg" style="color:white;font-size:36px;height:36px;"></md-icon>
+					</md-button>					
+					<md-menu-content width="4" class="menuLeft" style="max-height: auto;">
+						<a href="/ihm-home">
+						<md-menu-item>
+						  <md-button>
+							<md-icon md-svg-icon="images/ic_home_24px.svg"></md-icon>
+							Home
+						  </md-button>
+						</md-menu-item>
+						</a>
+						<md-menu-divider></md-menu-divider>
+						<a href="/deals.jsp?city=Bangalore">
+						<md-menu-item>	
+						  <md-button>
+							<md-icon md-svg-icon="images/ic_card_giftcard_24px.svg"></md-icon>
+							Health Packages
+						  </md-button>
+						</md-menu-item>
+						</a>
+						<md-menu-divider></md-menu-divider>
+						<a href="#/corporate">
+						<md-menu-item>	
+						  <md-button>
+							<md-icon md-svg-icon="images/ic_business_24px.svg"></md-icon>
+							Corporate Services
+						  </md-button>
+						</md-menu-item>
+						</a>
+						<md-menu-divider></md-menu-divider>
+						<a href="#/school">
+						<md-menu-item>	
+						  <md-button>
+							<md-icon md-svg-icon="images/ic_business_center_24px.svg"></md-icon>
+							School Services
+						  </md-button>
+						</md-menu-item>
+						</a>
+						<md-menu-divider></md-menu-divider>	
+						<a href="/home-service">
+						<md-menu-item>	
+						  <md-button>
+							<md-icon md-svg-icon="images/ic_next_week_24px.svg" style="opacity: 0.54"></md-icon>
+							Home Service
+						  </md-button>
+						</md-menu-item>
+						</a>
+						<md-menu-divider></md-menu-divider>
+						<a href="/appointments">
+						<md-menu-item>
+						  <md-button>
+							<md-icon md-svg-icon="images/ic_thumbs_up_down_24px.svg"></md-icon>
+							Appointment
+						  </md-button>
+						</md-menu-item>
+						</a>
+						<md-menu-divider></md-menu-divider>
+						<a href="https://blog.ihealthmantra.com">
+						<md-menu-item>
+						  <md-button>
+							<md-icon md-svg-icon="images/ic_feedback_24px.svg"></md-icon>
+							Blog
+						  </md-button>
+						</md-menu-item>
+						</a>
+						<md-menu-divider></md-menu-divider>
+						<a href="/about-us">
+						<md-menu-item>	
+						  <md-button ng-click="getSerchResult()">
+							<md-icon md-svg-icon="images/ic_people_24px.svg"></md-icon>
+							About
+						  </md-button>
+						</md-menu-item>
+						</a>
+						<md-menu-divider></md-menu-divider>
+						<md-menu-item>
+						  <md-button ng-click="ctrl.showPrerenderedDialog($event)">
+							<md-icon md-svg-icon="images/ic_call_24px.svg"></md-icon>
+							24/7 Support
+						  </md-button>
+						</md-menu-item>
+					</md-menu-content>						
+				</md-menu>	
+				</span>
+
+
+
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+</md-toolbar>
+
+
+
+<!--
+		<div class="topHeaderDiv">
+			<section class="header-top-section container">
+				<span class="lFloat">		
+					<span class="headerTopLeft">India's First Online Website for Booking your Visit</span>
+				</span>
+				
+				<span class="rFloat">India's Fastest Online Shopping Destination
+					<span class="headerTopRight">					
+						<div class="top-header-icon">
+							<span>
+								<i class="downloadIcon" ></i>
+							</span>
+						</div>
+						<a href="#" class="dp-widget-link hookLink">download app</a>
+							
+					</span>
+				</span>
+				<div class="clear"></div>
+			</section>
+		</div>
+		-->	

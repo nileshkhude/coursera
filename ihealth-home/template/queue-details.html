@@ -1,0 +1,290 @@
+<link rel="stylesheet" type="text/css" href="../style/create-queue.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div id="create-queue-page" ng-controller="queueController">
+  <md-toolbar class="seller-toolbar container">
+        <div class="md-toolbar-tools">
+          <h2>
+            <md-icon md-svg-src="../images/ic_nature_people_24px.svg" class="name"></md-icon>
+            <span class="queue-lbl">Queues Name :</span>
+            <span>ABC</span>
+          </h2>
+          <span flex></span>
+          <md-button class="md-raised" aria-label="Back" ng-click="gotoManageQueue()">
+            Back
+          </md-button>
+        </div>
+  </md-toolbar>
+
+  <div class="container create-queue">
+    
+    <div layout="column" layout-gt-xs="row" class="rowDiv start-end-time">
+      <div flex-gt-xs="70" layout="row" layout-align="center center">
+        <div flex="50">
+          <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+          <span>Strat Time : </span><span>10:00 AM</span>
+        </div>
+        <div flex="50" layout="row" layout-align="center center">
+          <i class="fa fa-hourglass-end" aria-hidden="true"></i>
+          <span>End Time : </span><span>10:00 PM</span>
+        </div>
+      </div>
+      <div flex-gt-xs="30" layout="row" layout-align="end center" class="date-hide">
+        <div>
+          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+          <span>Date : </span><span>09-11-2016</span>
+        </div>
+      </div>
+    </div>
+
+    <div layout="column" layout-gt-xs="row" class="rowDiv qservice-timeinfo">
+      <div flex-gt-xs="50" layout="row" layout-align="center end">
+        <span>
+        <!-- Average customer service time : <input ng-model="queuedetails.avgServiceTime" type="text" ng-required="true"> -->
+          <md-input-container>
+            <label>Average customer service time</label>
+            <input ng-model="queuedetails.avgServiceTime">
+          </md-input-container>
+        </span>
+      </div>
+      <div flex-gt-xs="50" layout="row" layout-align="center start">
+        <span>
+          <!-- Total to be serviced : <input ng-model="queuedetails.tobeServiced" type="text" ng-required="true"> -->
+          <md-input-container>
+            <label>Total to be serviced</label>
+            <input ng-model="queuedetails.tobeServiced">
+          </md-input-container>
+        </span>
+      </div>
+    </div>
+    
+    <div layout="column" layout-gt-xs="row" layout-align="center center">
+      <md-card>
+        <div class="prev" ng-click="prevPatients()">
+          <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+        </div>
+        <div class="next" ng-click="nextPatients()">
+          <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+        </div>
+        <div id="carousel">          
+          <div class="item patient-called"><i class="fa fa-male fa-4x" aria-hidden="true"></i></div>
+          <div class="item patient-serviced"><i class="fa fa-male fa-4x" aria-hidden="true"></i></div>
+          <div class="item"><i class="fa fa-male fa-4x" aria-hidden="true"></i></div>
+          <div class="item"><i class="fa fa-male fa-4x" aria-hidden="true"></i></div>
+          <div class="item"><i class="fa fa-male fa-4x" aria-hidden="true"></i></div>
+          <div class="item"><i class="fa fa-male fa-4x" aria-hidden="true"></i></div>
+          <div class="item"><i class="fa fa-male fa-4x" aria-hidden="true"></i></div>
+          <div class="item"><i class="fa fa-male fa-4x" aria-hidden="true"></i></div>
+        </div>        
+      </md-card>
+    </div>
+
+    <div layout="column" layout-gt-xs="row" class="detail-buttons">
+      <md-button class="md-raised detail-button-call" aria-label="Call" ng-click="">
+          <md-icon md-svg-src="../images/ic_call_24px.svg"></md-icon>
+            Call
+      </md-button>
+
+      <md-button class="md-raised detail-button-serviced" aria-label="Serviced" ng-click="">
+          <md-icon md-svg-src="../images/ic_done_24px.svg"></md-icon>
+            Serviced
+      </md-button>
+
+      <md-button class="md-raised detail-button-add-patient" aria-label="Add-New-Patient" ng-click="">
+          <md-icon md-svg-src="../images/ic_pregnant_woman_24px.svg"></md-icon>
+            Add New Patient
+      </md-button>
+    </div>
+  </div>
+
+</div>
+
+
+<style type="text/css">
+  .container.create-queue{
+    color: #24336f
+  }
+
+  .container.create-queue .rowDiv{
+    padding: 1%;
+  }
+
+  .container.create-queue .rowDiv.qservice-timeinfo{
+    padding: 1% 0;/* 1% 15%; */
+    background: #dae6fc;
+  }
+
+  .qservice-timeinfo input{
+    /*width: 20%; 
+    padding: 5px;
+    text-align: center;*/
+  }
+  
+  #carousel{
+    padding: 1% 15%;
+    height: 120px;
+    overflow-y: hidden;
+    text-align: center;
+  }
+
+  .item {
+    height: 100px;
+    width: 100px;
+    margin: 0 5px 12px 5px;
+    background: #dae6fc;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    border-radius: 50%;
+  }
+
+  .item.patient-called{
+    background: #49a4d4;
+  }
+
+  .item.patient-serviced{
+    background: #22a468;
+  }
+
+  .item .fa-male{
+    position: relative;
+    top: 18%;
+    /* left: 31%; */
+    color: #24336f;
+  }
+
+  .item.patient-called .fa-male{
+    color: #ffffff;
+  }
+
+  .item.patient-serviced .fa-male{
+    color: #ffffff;
+  }
+
+  .prev{
+    display: inline-block;
+    position: absolute;
+    top: 51%;
+    left: 17%;
+    cursor: pointer;
+  }
+
+  .next{
+    display: inline-block;
+    position: absolute;
+    right: 17%;
+    top: 51%;
+    cursor: pointer;
+  }
+
+  .detail-buttons .md-button.md-default-theme.md-raised:not([disabled]) md-icon, 
+  .detail-buttons .md-button.md-raised:not([disabled]) md-icon {
+    color: #ffffff;
+  }
+
+  button.md-raised.detail-button-call.md-button.md-ink-ripple {
+    background-color: #49a4d4 !important;
+  }
+
+  button.md-raised.detail-button-serviced.md-button.md-ink-ripple {
+    background-color: #22a468 !important;
+  }
+
+  button.md-raised.detail-button-add-patient.md-button.md-ink-ripple {
+    background-color: #24336f !important;
+  }
+  
+  .qservice-timeinfo md-input-container{
+    margin: 10px 0 0 0;
+  }
+
+  .qservice-timeinfo md-input-container .md-errors-spacer{
+    display: none;
+  }
+
+  .qservice-timeinfo md-input-container .md-placeholder, 
+  .qservice-timeinfo md-input-container label:not(.md-no-float):not(.md-container-ignore){
+    overflow: visible;
+    font-size: 14px;
+    color: #24336f;
+  }
+
+  @media only screen and (max-width: 1024px){
+    .prev, .next{
+      top: 50%;
+    }
+  }
+
+  @media only screen and (max-width: 960px){
+    .prev, .next{
+      top: 48%;
+    }
+
+    #carousel {
+      padding: 1.5% 15%;
+    }
+
+  }
+
+  @media only screen and (max-width: 600px){
+    .container.create-queue .date-hide{
+      display: none;
+    }
+
+    .seller-toolbar h2 span{
+      font-size: 16px;
+    }
+
+    .prev, .next {
+      top: 40%;
+    }
+
+    #carousel {
+      padding: 2% 15%;
+    }
+
+    .item{
+      margin: 2px 5px 12px 5px;
+    }
+  }
+
+  @media only screen and (max-width: 480px){
+    .container{
+      padding: 0;
+    }
+  }
+
+  @media only screen and (max-width: 420px){
+    .container{
+      padding: 0;
+    }
+    .seller-toolbar .md-button{
+      min-width: auto;
+    }
+    .start-end-time{
+      font-size: 12px;
+    }
+    md-toolbar.seller-toolbar .queue-lbl{
+      padding-left: 0;
+    }
+    .seller-toolbar h2 span{
+      font-size: 15px;
+    }
+    .prev, .next {
+      top: 39%;
+    }
+  }
+
+  @media only screen and (max-width: 320px){
+    #carousel {
+      padding: 4% 15%;
+    }    
+  }
+
+  @media screen and (max-width: 712px) and (min-width: 600px) {
+    .prev, .next {
+      top: 44%;
+    }
+  }
+  
+</style>

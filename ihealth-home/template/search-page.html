@@ -1,0 +1,838 @@
+<link rel="stylesheet" type="text/css" href="../style/search-style.css">
+<div class="container" id="search-results-content" ng-controller="searchResultController">
+	<div class="main-contenter">
+
+	<!-- left section -->
+	   <md-sidenav layout="column" class="left-filter-section" md-is-locked-open='true'>
+	   <div class="filter-title">
+	   		<md-subheader class="">Filters</md-subheader>
+	   </div>
+
+
+	   <div id="price-filter">
+	   		<h4> Price Range (INR) <h5>( 0 - {{priceRange.value}})</h5></h4>   		
+	   		<!--<md-slider-container>
+		      <span>Min</span>
+		      <md-slider min="0" max="{{slider2.max}}" step="1000" ng-model="slider1.min" aria-label="min" id="min-slider" class="md-primary"/>
+		      </md-slider>		      
+		    </md-slider-container>
+
+		    <md-slider-container>
+		      <span>Max</span>
+		      <md-slider min="{{slider1.min}}" max="25000" step="1000" ng-model="slider2.max" aria-label="max" id="max-slider" class="md-primary"/>
+		      </md-slider>	      
+		    </md-slider-container> -->
+
+
+		    <!--<div data-range-slider
+                     data-floor="0"
+                     data-ceiling="25000"
+                     data-step="1000"
+                     data-dragstop="true"
+                     data-ng-model-low="items[1].value"
+                     data-ng-model-high="items[2].value"></div>-->
+            <md-slider-container>
+			      <md-slider md-discrete min="0" max="25000" step="1000" ng-model="priceRange.value" aria-label="price" id="price-slider" class="md-primary"/>
+			      </md-slider>
+			      <!--<md-input-container>
+			        <input type="number" ng-model="slider2.max" aria-label="max" aria-controls="max-slider">
+			    </md-input-container>-->	      
+			</md-slider-container>
+
+		    <!--<div id="selectedRange">
+		    <span>From:<input type="number" ng-model="slider1.min" aria-label="min" aria-controls="min-slider"/><span>		    
+		    <span>To:<input type="number" ng-model="priceRange.value" aria-label="price" aria-controls="price-slider"/><span>
+		   	</div>-->
+	   </div>	   
+	   <md-divider></md-divider>
+
+	   <div id="distance-filter">
+	   		<h4> Distance Range (Km) <h5>( 0 - {{distanceRange.value}})</h5></h4>
+	   			<md-slider-container>
+			      <md-slider md-discrete min="0" max="50" step="1" ng-model="distanceRange.value" aria-label="max" id="distance-slider" class="md-primary"/>
+			      </md-slider>
+			      <!--<md-input-container>
+			        <input type="number" ng-model="slider2.max" aria-label="max" aria-controls="max-slider">
+			    </md-input-container>-->	      
+			    </md-slider-container>
+			    <!--<div>
+			    	<span>From:</span><span>0</span>to
+			    	<input type="number" ng-model="distanceRange.value" aria-label="min" aria-controls="distance-slider"/>
+			    </div>-->	   		
+	   </div>
+	   <md-divider></md-divider>
+
+	   <div id="rating-filter">
+	   		<h4> Rating </h4>
+	   		<div layout-gt-sm="row" layout-sm="row" layout-xs="row" layout-align="center" ng-repeat="item in [1,2,3]">
+	   			<div flex="30"><md-checkbox class="md-primary customCheckbox"></md-checkbox></div>
+	   			<div flex="30"><md-icon md-svg-icon="images/ic_home_24px.svg"></md-icon></div>
+	   			<div flex="30">1</div>
+	   		</div>	   		
+	   </div>
+	   <md-divider></md-divider>
+
+	   <div id="amenity-filter">
+	   		<h4> Amenities </h4>
+	   		<div>
+	   			<md-switch class="md-primary homeDeliverySwitch" ng-model="data.homeDelivery" aria-label="homeSample Switch" ng-change="onChange(data.homeDelivery)">
+    				Home Delivery  <!-- : {{ message }} -->
+  				</md-switch>
+	   		</div>	   		
+	   </div>
+	   </md-sidenav>
+	  
+	  <!-- Right Section : Showing Search Results-->
+	  <md-content flex layout="column" class="results">
+	    <div>
+
+
+
+
+	    <!-- SS1 option -->
+		    <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="" ng-click="hideContent()">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead color-overwrite">
+		            	<!-- Lab Info Section -->
+		            	<div>
+			            	<div class="lab_rating_img">
+			            		<!-- <img src="../images/nophoto.png" /> -->
+			            		<img src="../images/stars.png">
+			            	</div>
+			            	<div class="lab_short_info">
+			            		<div class="lab_rating"><!-- <span><img src="../images/stars.png"></span> -->8.9 out of 10 from <span class="lab_rating_cust_count"> 20 customers</span>
+			            		</div>
+			            		<div class="lab_address_wrapper">
+			            			<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+				            		<span class="lab_address">Adress: No.1780,1st floor,14th Main,Near Police Station,Kumaraswamy Layout, Bangalore 560078.</span>
+				            	</div>		            		
+			            	</div> 
+			            	<div class="clear"></div>
+		            	</div>
+		            	<!--<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	<span class="lab_phone">phone: 9090090900</span>
+						
+						<md-button flex="35"><span> Book Now</span>
+				          		<md-datepicker md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus="openCalender()">
+				          		</md-datepicker>
+			          		</md-button>
+			          		<div class="price" flex="15">₹ 500</div>
+			          		<md-button flex="30">Compare</md-button>
+		            	 -->
+
+		            	<!-- Facilities Section -->
+		            	<div class="lab_facilities" layout="row">
+			          		<span class="lab_facilities_lbl">Facilities</span>
+			          		<span class="lab_facilities_icons">
+			          			<span><md-icon md-svg-icon="../images/ic_email_24px.svg"></md-icon></span>
+			          			<span><i class="fa fa-wifi fa-lg" aria-hidden="true"></i></span>
+			          			<span><i class="fa fa-wifi fa-lg" aria-hidden="true"></i></span>
+			          		</span>
+			          		<div class="clear"></div>		
+	          		  	</div>
+
+	          		  	<!-- Booking Slot Section -->
+			            <div class="lab_booking_slots" layout="column">
+			          		<div class="lab_booking_header">
+			          			Availability <span class="select_timeslot_lbl">(Select time slot to make appointment)</span>
+			          		</div>
+			          		<div class="timeslot_selection">
+			          			<md-button class="">2:00 PM</md-button>
+			          			<md-button class="active">2:30 PM</md-button>
+			          			<md-button class="">3:00 PM</md-button>
+			          			<md-button class="">3:30 PM</md-button>
+			          			<md-button class="">4:00 PM</md-button>
+			          			<md-button class="">view more</md-button>
+			          		</div>
+			          		<div>
+			          			<md-button class="md-prime more-slots">
+			          				<md-icon md-svg-icon="../images/ic_date_range_24px.svg"></md-icon>
+			          				<span>Click here for more time slots</span>
+			          			</md-button>
+			          		</div>
+	          		  	</div>	          		  	
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-custom card-media">
+		            	<!-- <img src="../images/nophoto.png"/> -->
+		            	<jk-carousel
+				        data="dataArray"
+				        item-template-url="'template/images-template.html'"
+				        max-width="800" 
+				        max-height="500">
+				        </jk-carousel>
+		            </div>
+		            <div class="price-compare-btn" layout="row">
+		            	<div>
+			            	<md-button class="price-section">
+				          				<span class="pricefinal">₹ 3,500</span><br/>
+				          				<div class="discount">Save 10%</div>
+				          	</md-button>
+			          	</div>
+
+			          	<div layout="column">
+				          	<md-button class="get-distance" layout="row">
+				          		<!-- <md-icon md-svg-icon="../images/ic_directions_24px.svg"></md-icon> -->       	
+				          		<span>Get Direction</span>
+				          	</md-button>
+				          	<md-button class="add-compare" layout="row">
+				          				<!-- <span>compare</span> -->
+				          				<md-checkbox aria-label="Checkbox" ng-model="compare.c1">Compare</md-checkbox>
+				          				<!-- <md-icon md-svg-icon="../images/ic_date_range_24px.svg"></md-icon> -->
+				          	</md-button>		          		
+			          	</div>
+		            </div>
+		          </md-card-title-media>
+		        </md-card-title>
+		        <md-card-actions layout-sm="column" layout="row" layout-align="start center">
+		          <md-content class="tabs">
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" ng-click="showContent($event)" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" ng-click="showContent($event)" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" ng-click="showContent($event)" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" ng-click="showContent($event)" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      <span ng-bind-html="currentContent"></span>
+					  </div>
+				  </md-content>
+		        </md-card-actions>
+	      </md-card>
+
+
+	      <!-- SS2 option -->
+		    <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="" ng-click="hideContent()">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead color-overwrite">
+		            	<!-- Lab Info Section -->
+		            	<div>
+			            	<div class="lab_rating_img">
+			            		<!-- <img src="../images/nophoto.png" /> -->
+			            		<img src="../images/stars.png">
+			            	</div>
+			            	<div class="lab_short_info">
+			            		<div class="lab_rating"><!-- <span><img src="../images/stars.png"></span> -->8.9 out of 10 from <span class="lab_rating_cust_count"> 20 customers</span>
+			            		</div>
+			            		<div class="lab_address_wrapper">
+			            			<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+				            		<span class="lab_address">Adress: No.1780,1st floor,14th Main,Near Police Station,Kumaraswamy Layout, Bangalore 560078.</span>
+				            	</div>		            		
+			            	</div> 
+			            	<div class="clear"></div>
+		            	</div>
+		            	<!--<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	<span class="lab_phone">phone: 9090090900</span>
+						
+						<md-button flex="35"><span> Book Now</span>
+				          		<md-datepicker md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus="openCalender()">
+				          		</md-datepicker>
+			          		</md-button>
+			          		<div class="price" flex="15">₹ 500</div>
+			          		<md-button flex="30">Compare</md-button>
+		            	 -->
+
+		            	<!-- Facilities Section -->
+		            	<div class="lab_facilities" layout="row">
+			          		<span class="lab_facilities_lbl">Facilities</span>
+			          		<span class="lab_facilities_icons">
+			          			<span><md-icon md-svg-icon="../images/ic_email_24px.svg"></md-icon></span>
+			          			<span><i class="fa fa-wifi fa-lg" aria-hidden="true"></i></span>
+			          			<span><i class="fa fa-wifi fa-lg" aria-hidden="true"></i></span>
+			          		</span>
+			          		<div class="clear"></div>		
+	          		  	</div>
+
+	          		  	<!-- Booking Slot Section -->
+			            <div class="lab_booking_slots" layout="column">
+			          		<div class="lab_booking_header">
+			          			Availability <span class="select_timeslot_lbl">(Select time slot to make appointment)</span>
+			          		</div>
+			          		<div class="timeslot_selection">
+			          			<md-button class="">2:00 PM</md-button>
+			          			<md-button class="active">2:30 PM</md-button>
+			          			<md-button class="">3:00 PM</md-button>
+			          			<md-button class="">3:30 PM</md-button>
+			          			<md-button class="">4:00 PM</md-button>
+			          			<md-button class="">view more</md-button>
+			          		</div>
+			          		<div>
+			          			<md-button class="md-prime more-slots">
+			          				<md-icon md-svg-icon="../images/ic_date_range_24px.svg"></md-icon>
+			          				<span>Click here for more time slots</span>
+			          			</md-button>
+			          		</div>
+	          		  	</div>	          		  	
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-custom card-media">
+		            	<img src="../images/nophoto.png"/>
+		            	<!-- <jk-carousel
+				        data="dataArray"
+				        item-template-url="'template/images-template.html'"
+				        max-width="800" 
+				        max-height="500">
+				        </jk-carousel> -->
+		            </div>
+		            <div class="price-compare-btn" layout="row">
+		            	<div>
+			            	<md-button class="price-section">
+				          				<span class="pricefinal">₹ 3,500</span><br/>
+				          				<div class="discount">Save 10%</div>
+				          	</md-button>
+			          	</div>
+
+			          	<div layout="column">
+				          	<md-button class="get-distance" layout="row">
+				          				<span>Get Direction</span>
+				          	</md-button>
+				          	<md-button class="add-compare" layout="row">
+				          				<!-- <span>compare</span> -->
+				          				<md-checkbox aria-label="Checkbox" ng-model="compare.c2">Compare</md-checkbox>
+				          				<!-- <md-icon md-svg-icon="../images/ic_date_range_24px.svg"></md-icon> -->
+				          	</md-button>		          		
+			          	</div>
+		            </div>
+		          </md-card-title-media>
+		        </md-card-title>
+		        <md-card-actions layout-sm="column" layout="row" layout-align="start center">
+		          <md-content class="tabs">
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" ng-click="showContent($event)" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" ng-click="showContent($event)" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" ng-click="showContent($event)" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" ng-click="showContent($event)" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      <span ng-bind-html="currentContent"></span>
+					  </div>
+				  </md-content>
+		        </md-card-actions>
+	      </md-card>
+
+
+	    <!-- Final option -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead">
+		            	<span><img src="../images/stars.png">
+		            		<md-tooltip md-direction="right">
+					            <div class="lab_rating">8.9 out of 10 from <span class="lab_rating_cust_count"> 20 customers</span>
+			            		</div>
+					        </md-tooltip>
+		            	</span>
+		            	<div>
+		            		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+		            		Adress: Kumaraswamy Layout, Bangalore 560078.
+		            	</div> 
+		            	<!--<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	phone: 9090090900-->
+			            <span layout="row">
+			          		<md-button class="bookingDate"><span class="bookNowTitle"> Book Now</span>
+				          		<md-datepicker md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus>
+				          		</md-datepicker>
+			          		</md-button>			          		
+			          		<md-button class="compare-btn">
+			          			<md-switch class="md-primary" ng-model="data.compare" aria-label="compare switch" ng-change="onChange(data.compare)">
+    							Compare  <!-- : {{ message }} -->
+  								</md-switch>
+  							</md-button>
+			          		<div class="price">₹ 300</div>			          		
+	          		  	</span>
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-custom card-media">
+		            	<!-- <img src="../images/nophoto.png"/> -->
+		            	<jk-carousel
+				        data="dataArray"
+				        item-template-url="'template/images-template.html'"
+				        max-width="800" 
+				        max-height="500"><!-- auto-slide="true" auto-slide-time="2000" -->
+				        </jk-carousel>
+		            </div>
+		          </md-card-title-media>
+		        </md-card-title>
+		        <!--<md-card-actions layout-sm="column" layout="row" layout-align="start center">
+		          <md-content>
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      `<span>{{currentContent}}</span>`
+					  </div>
+				  </md-content>
+		        </md-card-actions>-->
+	      </md-card>
+
+
+<!-- Final option 2 -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead">
+		            	<span><img src="../images/stars.png"></span>
+		            	<div>
+		            		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+		            		Adress: Kumaraswamy Layout, Bangalore 560078.
+		            	</div> 
+		            	<!--<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	phone: 9090090900-->			           
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-custom card-media">
+		            	<!-- <img src="../images/nophoto.png"/> -->
+		            	<jk-carousel
+				        data="dataArray"
+				        item-template-url="'template/images-template.html'"
+				        max-width="800" 
+				        max-height="500"><!-- auto-slide="true" auto-slide-time="2000" -->
+				        </jk-carousel>
+		            </div>
+
+		             <span layout="row" class="belowImg">
+		             	<md-button>Compare</md-button>			          	
+			          	<div class="price">₹ 300</div>			          	
+	          		 </span>
+	          		 <span class="belowImgBookDate">    		
+			          	<md-button class="bookingDate"><span class="bookNowTitle"> Book Now</span>
+				        	<md-datepicker md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus>
+				          		</md-datepicker>
+			          	</md-button>
+	          		 </span>
+		          </md-card-title-media>
+		        </md-card-title>
+		        <!--<md-card-actions layout-sm="column" layout="row" layout-align="start center">
+		          <md-content>
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      `<span>{{currentContent}}</span>`
+					  </div>
+				  </md-content>
+		        </md-card-actions>-->
+	      </md-card>
+
+
+	     <!-- 1st option -->
+		    <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="" ng-click="hideContent()">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead color-overwrite">
+		            	<!-- Lab Info Section -->
+		            	<div>
+			            	<div class="lab_rating_img">
+			            		<!-- <img src="../images/nophoto.png" /> -->
+			            		<img src="../images/stars.png">
+			            	</div>
+			            	<div class="lab_short_info">
+			            		<div class="lab_rating"><!-- <span><img src="../images/stars.png"></span> -->8.9 out of 10 from <span class="lab_rating_cust_count"> 20 customers</span>
+			            		</div>
+			            		<div class="lab_address_wrapper">
+			            			<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+				            		<span class="lab_address">Adress: No.1780,1st floor,14th Main,Near Police Station,Kumaraswamy Layout, Bangalore 560078.</span>
+				            	</div>		            		
+			            	</div> 
+			            	<div class="clear"></div>
+		            	</div>
+		            	<!--<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	<span class="lab_phone">phone: 9090090900</span>
+						
+						<md-button flex="35"><span> Book Now</span>
+				          		<md-datepicker md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus="openCalender()">
+				          		</md-datepicker>
+			          		</md-button>
+			          		<div class="price" flex="15">₹ 500</div>
+			          		<md-button flex="30">Compare</md-button>
+		            	 -->
+
+		            	<!-- Facilities Section -->
+		            	<div class="lab_facilities" layout="row">
+			          		<span class="lab_facilities_lbl">Facilities</span>
+			          		<span class="lab_facilities_icons">
+			          			<span><md-icon md-svg-icon="../images/ic_email_24px.svg"></md-icon></span>
+			          			<span><i class="fa fa-wifi fa-lg" aria-hidden="true"></i></span>
+			          			<span><i class="fa fa-wifi fa-lg" aria-hidden="true"></i></span>
+			          		</span>
+			          		<div class="clear"></div>		
+	          		  	</div>
+
+	          		  	<!-- Booking Slot Section -->
+			            <div class="lab_booking_slots" layout="column">
+			          		<div class="lab_booking_header">
+			          			Availability <span class="select_timeslot_lbl">(Select time slot to make appointment)</span>
+			          		</div>
+			          		<div class="timeslot_selection">
+			          			<md-button class="">2:00 PM</md-button>
+			          			<md-button class="active">2:30 PM</md-button>
+			          			<md-button class="">3:00 PM</md-button>
+			          			<md-button class="">3:30 PM</md-button>
+			          			<md-button class="">4:00 PM</md-button>
+			          			<md-button class="">view more</md-button>
+			          		</div>
+			          		<div>
+			          			<md-button class="md-prime more-slots">
+			          				<md-icon md-svg-icon="../images/ic_date_range_24px.svg"></md-icon>
+			          				<span>Click here for more timeslots</span>
+			          			</md-button>
+			          		</div>
+	          		  	</div>	          		  	
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-custom card-media">
+		            	<img src="../images/nophoto.png"/>
+		            	<!-- <jk-carousel
+				        data="dataArray"
+				        item-template-url="'template/images-template.html'"
+				        max-width="800" 
+				        max-height="500">
+				        </jk-carousel> -->
+		            </div>
+		            <div class="price-compare-btn" layout="row">
+		            	<div>
+			            	<md-button class="price-section">
+				          				<span class="pricefinal">₹ 3,500</span><br/>
+				          				<div class="discount">Save 10%</div>
+				          	</md-button>
+			          	</div>
+
+			          	<div layout="column">
+				          	<md-button class="get-distance" layout="row">
+				          				<span>Get Direction</span>
+				          	</md-button>
+				          	<md-button class="add-compare" layout="row">
+				          				<span>compare</span>
+				          				<md-icon md-svg-icon="../images/ic_date_range_24px.svg"></md-icon>
+				          	</md-button>		          		
+			          	</div>
+		            </div>
+		          </md-card-title-media>
+		        </md-card-title>
+		        <md-card-actions layout-sm="column" layout="row" layout-align="start center">
+		          <md-content class="tabs">
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" ng-click="showContent($event)" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" ng-click="showContent($event)" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" ng-click="showContent($event)" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" ng-click="showContent($event)" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      <span ng-bind-html="currentContent"></span>
+					  </div>
+				  </md-content>
+		        </md-card-actions>
+	      </md-card>
+
+	    <!-- 2nd option -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead">
+		            	<div>
+		            		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+		            		Adress: No.1780,1st floor,14th Main,Near Police Station,Kumaraswamy Layout, Bangalore 560078.
+		            	</div> 
+		            	<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	phone: 9090090900
+			            <span layout="row">
+			          		<md-button class="datepickerCustom"><span> Book Now</span>
+				          		<md-datepicker md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus>
+				          		</md-datepicker>
+			          		</md-button>			          		
+			          		<md-button>Compare</md-button>
+			          		<div class="price">₹ 300</div>			          		
+	          		  	</span>
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-sm card-media">
+		            	<img src="../images/nophoto.png"/>
+		            </div>
+		            <div class="ratingDiv"><img src="../images/stars.png"><div>rating</div></div>		            
+		          </md-card-title-media>
+		        </md-card-title>
+		        <md-card-actions layout-sm="column" layout="row" layout-align="start center">
+		          <md-content>
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" ng-click="showContent($event)" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" ng-click="showContent($event)" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" ng-click="showContent($event)" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" ng-click="showContent($event)" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      `<span>{{currentContent}}</span>`
+					  </div>
+				  </md-content>
+		        </md-card-actions>
+	      </md-card>
+
+
+	    <!-- 3rd option -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+		        <md-card-title>
+
+		          <md-card-title-media>
+		            <div class="md-media-custom card-media">
+		            	<img src="../images/nophoto.png"/>
+		            </div>
+		          </md-card-title-media>
+		          <md-card-title-text class="caustomMargin">
+		            <span class="md-headline">Anusha Clinical Laboratory <span class="ratingDiv"><img src="../images/stars.png"></span></span>
+		            <span class="md-subhead">
+		            	<div>
+		            		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+		            		Adress: No.1780,1st floor,14th Main,Near Police Station,Kumaraswamy Layout, Bangalore 560078.
+		            	</div> 
+		            	<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	phone: 9090090900
+			            <span layout="row">
+			          		<md-button><span ng-click="openCalender()"> Book Now</span>
+				          		<md-datepicker md-is-open="isOpen" md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus>
+				          		</md-datepicker>
+			          		</md-button>
+			          		<div class="price">₹ 300</div>				          		
+			          		<md-button >Compare</md-button>		          		
+	          		  	</span>
+		            </span>
+		          </md-card-title-text>		          
+		        </md-card-title>
+		        <md-card-actions layout-sm="column" layout="row" layout-align="end center">
+		          <md-content>
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      `<span>{{currentContent}}</span>`
+					  </div>
+				  </md-content>
+		        </md-card-actions>
+	      </md-card>
+
+	    <!-- 4th option -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead">
+		            	<span><img src="../images/stars.png"></span>
+		            	<div>
+		            		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+		            		Adress: No.1780,1st floor,14th Main,Near Police Station,Kumaraswamy Layout, Bangalore 560078.
+		            	</div> 
+		            	<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	phone: 9090090900
+			            <span layout="row">
+			          		<md-button flex="35"><span> Book Now</span>
+				          		<md-datepicker md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus>
+				          		</md-datepicker>
+			          		</md-button>			          		
+			          		<md-button flex="30">Compare</md-button>
+			          		<div class="price" flex="15">₹ 300</div>			          		
+	          		  	</span>
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-lg card-media">
+		            	<img src="../images/nophoto.png"/>
+		            </div>
+		          </md-card-title-media>
+		        </md-card-title>
+		        <md-card-actions layout-sm="column" layout="row" layout-align="start center">
+		          <md-content>
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      `<span>{{currentContent}}</span>`
+					  </div>
+				  </md-content>
+		        </md-card-actions>
+	      </md-card>
+
+
+
+	    <!-- 5th option -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead">
+		            	<span><img src="../images/stars.png"></span>
+		            	<div>
+		            		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+		            		Adress: No.1780,1st floor,14th Main,Near Police Station,Kumaraswamy Layout, Bangalore 560078.
+		            	</div> 
+		            	<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	phone: 9090090900
+			            <span layout="row">
+			          		<md-button flex="35"><span> Book Now</span>
+				          		<md-datepicker md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus>
+				          		</md-datepicker>
+			          		</md-button>			          		
+			          		<md-button flex="30">Compare</md-button>
+			          		<div class="price" flex="15">₹ 300</div>			          		
+	          		  	</span>
+		            </span>
+		          </md-card-title-text>
+		          <md-card-title-media>
+		            <div class="md-media-lg card-media">
+		            	<img src="../images/nophoto.png"/>
+		            </div>
+		          </md-card-title-media>
+		        </md-card-title>
+		        <md-card-actions layout-sm="column" layout="row" layout-align="start center">
+		          <md-content>
+			          	<md-tabs md-dynamic-height md-border-bottom ng-click="cutomeStyle()" ng-style="myStyle">
+
+<md-tab>
+  <md-tab-label>
+    <h3>My Tab 1</h3>
+  </md-tab-label>
+  <md-tab-body>
+    <p>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+      totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+      dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+      sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+    </p>
+  </md-tab-body>
+</md-tab>
+
+
+<md-tab>
+  <md-tab-label>
+    <h3>My Tab 2</h3>
+  </md-tab-label>
+  <md-tab-body>
+    <p>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+      totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+      dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+      sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+    </p>
+  </md-tab-body>
+</md-tab>
+
+
+
+					      <!--<md-tab label="Details">
+					        <md-content class="md-padding" ng-show="false">
+					          <h1 class="md-display-2">Tab One</h1>
+					          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+					        </md-content>
+					      </md-tab>
+					      <md-tab label="Map">
+					        <md-content class="md-padding" ng-show="false">
+					          <h1 class="md-display-2">Tab Two</h1>
+					          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+					        </md-content>
+					      </md-tab>
+					      <md-tab label="Deals">
+					        <md-content class="md-padding">
+					          <h1 class="md-display-2">Tab Three</h1>
+					          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+					        </md-content>
+					      </md-tab>
+					      <md-tab label="Review">
+					        <md-content class="md-padding">
+					          <h1 class="md-display-2">Tab four</h1>
+					          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+					        </md-content>
+					      </md-tab>-->
+					    </md-tabs>
+
+				  </md-content>
+		        </md-card-actions>
+	      </md-card>
+
+	      <!-- 6th option -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+		        <md-card-title>
+
+		          <md-card-title-media>
+		            <div class="md-media-custom card-media">
+		            	<img src="../images/nophoto.png"/>
+		            </div>
+		          </md-card-title-media>
+		          <md-card-title-text class="caustomMargin">
+		            <span class="md-headline">Anusha Clinical Laboratory</span>
+		            <span class="md-subhead">
+		            	<span><img src="../images/stars.png"></span>
+		            	<div>
+		            		<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+		            		Adress: No.1780,1st floor,14th Main,Near Police Station,Kumaraswamy Layout, Bangalore 560078.
+		            	</div> 
+		            	<i class="fa fa-volume-control-phone fa-lg" aria-hidden="true"></i>
+		            	phone: 9090090900			            
+		            </span>
+		          </md-card-title-text>
+
+		          	<div class="buttonscolumn" layout="column">
+		          			<div class="price">₹ 300</div>
+			          		<md-button><span ng-click="openCalender()"> Book Now</span>
+				          		<md-datepicker md-is-open="isOpen" md-hide-icons="triangle" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" md-open-on-focus>
+				          		</md-datepicker>
+			          		</md-button>			          						          		
+			          		<md-button >Compare</md-button>		          		
+	          		</div>
+
+		        </md-card-title>
+		        <md-card-actions layout-sm="column" layout="row" layout-align="end center">
+		          <md-content>
+			          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="tabbing">
+				      	<md-nav-item md-nav-click="goto('details')" name="page1">Details</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('map')" name="page2">Map</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('deals')" name="page3">Deals</md-nav-item>
+				      	<md-nav-item md-nav-click="goto('review')" name="page4">Review</md-nav-item>		      
+					  </md-nav-bar>
+					  <div class="ext-content" ng-show="isShow">
+					      `<span>{{currentContent}}</span>`
+					  </div>
+				  </md-content>
+		        </md-card-actions>
+	      </md-card>
+
+	    <!-- 7th option -->
+	      <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch="">
+	        <div>
+
+			  <div class="ng-scope layout-row">
+
+			    <div class="flex">First item in row</div>
+			    <div class="flex-20">Second item in row</div>
+
+			  </div>
+
+			</div>
+	      </md-card>
+
+      </div>
+	  </md-content>
+	  <div class="clear"></div>
+  </div>
+</div>

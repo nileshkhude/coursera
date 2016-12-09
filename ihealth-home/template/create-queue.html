@@ -1,0 +1,130 @@
+<link rel="stylesheet" type="text/css" href="../style/create-queue.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet">
+
+<div id="create-queue-page" ng-controller="queueController">
+  <md-toolbar class="seller-toolbar container">
+        <div class="md-toolbar-tools">
+          <!-- <md-button aria-label="Go Back">
+            Go Back
+          </md-button> -->
+          <h2>
+            <md-icon md-svg-src="../images/ic_nature_people_24px.svg" class="name"></md-icon>
+            <span class="queue-lbl">Queues</span>
+          </h2>
+          <span flex></span>
+          <!-- <md-button class="md-raised" aria-label="Create" ng-click="createQueue()">
+            create
+          </md-button> -->
+          <md-button class="md-raised" aria-label="Back" ng-click="gotoManageQueue()">
+            Back
+          </md-button>
+          <!-- <md-button class="md-fab md-mini" aria-label="Favorite">
+            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+          </md-button> -->
+        </div>
+  </md-toolbar>
+
+  <div class="container create-queue">
+    <!-- <div class="queues1">
+      <h1>Create Queue Form</h1>
+      <div class="queue">
+        <lable class="title"><i class="fa fa-clock-o" aria-hidden="true"></i>Queue Start Time : </lable>
+        <input type="time" name="">
+      </div>
+      <div class="queue">
+        <lable class="title"><i class="fa fa-clock-o" aria-hidden="true"></i>Queue End Time : </lable>
+        <input type="time" name="">
+      </div>
+      <div class="queue">
+        <lable class="title"><i class="fa fa-hourglass-start" aria-hidden="true"></i>Consult Time : </lable>
+        <input type="number" name="">
+      </div>
+      <div class="queue">
+        <lable class="title"><i class="fa fa-table" aria-hidden="true"></i>Total Slots : </lable>
+        <input type="number" name="">
+      </div>
+      <div class="queue">
+        <lable class="title"><i class="fa fa-buysellads" aria-hidden="true"></i>Queue Name : </lable>
+        <input type="number" name="">
+      </div>
+      <div class="queue">
+        <lable class="title"><i class="fa fa-table" aria-hidden="true"></i>Slots in Parallel : </lable>
+        <input type="number" name="">
+      </div>
+      <div>
+        <md-button class="md-raised" aria-label="Save" ng-click="">
+            Save
+        </md-button>
+      </div>
+    </div> -->
+
+
+
+    <!-- 2nd Option -->
+    <h2 class="form-title">Create Queue </h2>
+    <md-divider></md-divider>
+    <md-content class="md-no-momentum create-queue-form">
+    <div layout="column" layout-gt-xs="row">
+      <md-input-container flex-gt-xs="50" class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>Queue Start Time</label>
+        <md-icon md-svg-src="../images/ic_schedule_24px.svg" class="name"></md-icon>
+        <input ng-model="queue.startTime" type="time" ng-required="true">
+      </md-input-container>
+
+      <md-input-container flex-gt-xs="50" md-no-float="" class="md-block">
+        <label>Queue End Time</label>
+        <md-icon md-svg-src="../images/ic_schedule_24px.svg" class="name"></md-icon>
+        <input ng-model="queue.endTime" type="time" ng-required="true">
+      </md-input-container>      
+    </div>
+    
+    <div layout="column" layout-gt-xs="row">
+      <md-input-container class="md-block" flex-gt-xs="50">
+        <!-- Use floating placeholder instead of label -->
+        <md-icon md-svg-src="../images/ic_timer_24px.svg" class="email"></md-icon>
+        <input ng-model="queue.consultTime" type="text" placeholder="Consult Time ( in minutes )" ng-required="true">
+      </md-input-container>
+
+      <md-input-container md-no-float="" flex-gt-xs="50" class="md-block"> 
+         <label>Total Slots</label>       
+        <md-icon md-svg-src="../images/ic_grid_on_24px.svg"></md-icon>
+        <input ng-model="queue.totalSlots" type="text" ng-required="true">
+      </md-input-container>
+    </div>
+    
+    <div layout="column" layout-gt-xs="row">
+      <!-- <md-input-container flex="50" class="md-icon-float md-icon-right md-block">
+            <label>Donation Amount</label>
+            <md-icon md-svg-src="img/icons/ic_card_giftcard_24px.svg"></md-icon>
+            <input ng-model="user.donation" type="time" step="0.01">
+            <md-icon md-svg-src="img/icons/ic_euro_24px.svg"></md-icon>
+          </md-input-container>
+           -->
+      <md-input-container flex-gt-xs="50" class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>Queue Name</label>
+        <md-icon md-svg-src="../images/ic_nature_people_24px.svg" class="name"></md-icon>
+        <input ng-model="queue.name" type="text" ng-required="true">
+      </md-input-container>
+
+       <md-input-container md-no-float="" flex-gt-xs="50" class="md-block"> 
+          <label>Slots in Parallel</label>       
+          <md-icon md-svg-src="../images/ic_grid_on_24px.svg"></md-icon>
+          <input ng-model="queue.parallelSlots" type="text" ng-required="true">
+      </md-input-container>
+    </div>
+
+    <div layout="column" layout-gt-xs="row">
+      <md-button class="md-raised" aria-label="Save" ng-click="generateQueue()">
+            Save
+      </md-button>
+
+      <md-button class="md-raised" aria-label="Cancel" ng-click="gotoManageQueue()">
+            Cancel
+      </md-button>
+    </div>
+  </md-content>
+  </div>
+</div>

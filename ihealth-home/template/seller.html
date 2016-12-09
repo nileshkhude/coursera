@@ -1,0 +1,56 @@
+<link rel="stylesheet" type="text/css" href="../style/seller.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div id="seller-page" ng-controller="sellerCtrl">
+	<div class="container">
+		<md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-media>
+            <div class="md-media-md card-media">
+            	<img src="../images/corporate/wellness-service.jpg" class="" alt="" />
+            </div>
+          </md-card-title-media>
+          <md-card-title-text layout="column" layout-gt-xs="row">
+            <div flex-gt-xs="50" layout-align="center center">
+            	<span class="md-headline">Anusha Clinical Laboratory</span>
+            	<span class="info-wrapper">
+            		<div class="strar-rating">
+						<div class="rating">
+						    <input type="radio" id="star5" name="rating" value="5"  disabled="disabled" /><label for="star5" title="Rocks!">5 stars</label>
+						    <input type="radio" id="star4" name="rating" value="4" disabled="disabled"/><label for="star4" title="Pretty good">4 stars</label>
+						    <input type="radio" id="star3" name="rating" value="3" checked="checked" disabled="disabled"/><label for="star3" title="Meh">3 stars</label>
+						    <input type="radio" id="star2" name="rating" value="2" disabled="disabled"/><label for="star2" title="Kinda bad">2 stars</label>
+						    <input type="radio" id="star1" name="rating" value="1" disabled="disabled"/><label for="star1" title="Sucks big time">1 star</label>
+						    <div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+            		</div>
+            		<div class="location">Hadapsar, Pune</div>
+            		<div class="clinic-info">Multi-Speciality Hospital</div>
+            		<div class="doctor-count">15 Doctors</div>
+            	</span>
+            </div>
+            <div flex-gt-xs="50" layout-align="center center" class="btn-callNow-wrapper">
+            	<md-button class="md-primary md-raised btn-callNow-padding" ng-click="callNow()">Call Now</md-button>
+            </div>
+          </md-card-title-text>          
+        </md-card-title>
+        <div class="callNow-section">
+        	<div> Mobile : +91 9898989898</div>
+        </div>
+        <div layout="row" layout-align="center end">
+            <md-content class="tabbing-section-wrapper">
+			    <md-tabs md-selected="selectedIndex" md-border-bottom="" md-autoselect="" md-dynamic-height="true">
+			      <md-tab ng-repeat="tab in tabs" ng-disabled="tab.disabled" label="{{tab.title}}">
+			        <div class="demo-tab tab{{$index%4}}" style="padding: 25px;">
+			          <div ng-include="tab.content"></div>
+			          <br>
+			          <!-- <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button> -->
+			        </div>
+			      </md-tab>
+			    </md-tabs>
+			</md-content>
+        </div>
+      </md-card>
+	</div>
+</div>
