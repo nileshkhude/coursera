@@ -123,23 +123,23 @@ jQuery(document).ready(function($){
 				});
 				console.log("Hi");
 			});
-			// $( document ).on( 'click', 'a[data-role=popup]', function(){
-			// 	var popupId = $( this ).attr( 'href' );
-			// 	$( popupId ).fadeIn();
-			// 	return false;
-			// } );
-			// $( document ).on( 'click', 'a.popup-overlay', function(){
-			// 	$( this ).parent().fadeOut();
-			// 	return false;
-			// } );
-			// $( document ).on( 'click', '.menu-toggle', function(){
-			// 	$( this ).closest( 'li' ).children( '.sub-menu' ).slideToggle();
-			// 	return false;
-			// } );
-			// $( document ).on( 'click', '.contact-toggle', function(){
-			// 	$( '.contact-wrapper' ).slideToggle();
-			// 	return false;
-			// } );
+			$( document ).on( 'click', 'a[data-role=popup]', function(){
+				var popupId = $( this ).attr( 'href' );
+				$( popupId ).fadeIn();
+				return false;
+			} );
+			$( document ).on( 'click', 'a.popup-overlay', function(){
+				$( this ).parent().fadeOut();
+				return false;
+			} );
+			$( document ).on( 'click', '.menu-toggle', function(){
+				$( this ).closest( 'li' ).children( '.sub-menu' ).slideToggle();
+				return false;
+			} );
+			$( document ).on( 'click', '.contact-toggle', function(){
+				$( '.contact-wrapper' ).slideToggle();
+				return false;
+			} );
 		</script>
 	<!-- <script src='https://app.popupdomination.com/a/EkoyXK4xM.js'></script> -->
 	</body>
