@@ -106,23 +106,16 @@ jQuery(document).ready(function($){
 				console.log("Hi");
 				var n = !0,
 					t = !0;
-				// $(".arrow-left").click(function() {
-				// 	console.log("clicked");
-				// 	n && (n = !1, setTimeout(function() {
-				// 		n = !0
-				// 	}, 800), $("#demo-wrapper").toggleClass("show-nav"));					
-				// 	$("#demo-wrapper").hasClass("show-nav") ? ($("#arrowsell").addClass("clockwise180"), $("#sellcircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowsell").removeClass("clockwise180"), $("#sellcircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
-				// });
 				$( document ).on( 'click', '.arrow-left', function(){
 					console.log("clicked");
-						console.log("clicked");
+						//console.log("clicked");
 						n && (n = !1, setTimeout(function() {
 							n = !0
 						}, 800), $("#demo-wrapper").toggleClass("show-nav"));					
 						$("#demo-wrapper").hasClass("show-nav") ? ($("#arrowsell").addClass("clockwise180"), $("#sellcircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowsell").removeClass("clockwise180"), $("#sellcircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
 				} );
 				console.log("Hi");
-				$("#buycircle").click(function() {
+				$( document ).on( 'click', '.arrow-right', function() {
 					t && (t = !1, setTimeout(function() {
 						t = !0
 					}, 800), $("#demo-wrapper").toggleClass("show-nav2"));
