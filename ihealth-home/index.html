@@ -106,13 +106,13 @@ jQuery(document).ready(function($){
 				alert("Hi");
 				var n = !0,
 					t = !0;
-				$("#sellcircleentry, #sellcircle").click(function() {
+				$("#sellcircle").click(function() {
 					n && (n = !1, setTimeout(function() {
 						n = !0
 					}, 800), $("#demo-wrapper").toggleClass("show-nav"));					
 					$("#demo-wrapper").hasClass("show-nav") ? ($("#arrowsell").addClass("clockwise180"), $("#sellcircle span").addClass("opacity"),$("#howItWorks").animate({opacity: "0"},500)) : ($("#arrowsell").removeClass("clockwise180"), $("#sellcircle span").removeClass("opacity"),$("#howItWorks").animate({opacity: "1"},500));
 				});
-				$("#buycircleentry, #buycircle").click(function() {
+				$("#buycircle").click(function() {
 					t && (t = !1, setTimeout(function() {
 						t = !0
 					}, 800), $("#demo-wrapper").toggleClass("show-nav2"));
